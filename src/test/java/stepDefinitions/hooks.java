@@ -1,12 +1,12 @@
 package stepDefinitions;
 
 import io.cucumber.java.After;
-import utils.TextContextSetup;
+import utils.TestContextSetup;
 
 public class hooks {
-    TextContextSetup textContextSetup;
+    TestContextSetup textContextSetup;
 
-    public hooks(TextContextSetup textContextSetup) {
+    public hooks(TestContextSetup textContextSetup) {
         this.textContextSetup = textContextSetup;
     }
 
