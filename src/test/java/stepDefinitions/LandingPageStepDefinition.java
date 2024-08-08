@@ -16,8 +16,7 @@ public class LandingPageStepDefinition {
 
     @Given("User is on Green Card Landing page")
     public void userIsOnGreenCardLandingPage() {
-        testContextSetup.driver = new ChromeDriver();
-        testContextSetup.driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+
     }
 
     @When("User searched with shortname {string} and expected actual name of product")

@@ -2,15 +2,13 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import pageObjects.LandingPage;
 import pageObjects.OffersPage;
 import pageObjects.PageObjectManager;
 import utils.TestContextSetup;
 
+import java.io.IOException;
 import java.time.Duration;
-import java.util.Iterator;
-import java.util.Set;
 
 public class OfferPageStepDefinition {
     TestContextSetup textContextSetup;
@@ -21,12 +19,12 @@ public class OfferPageStepDefinition {
     }
 
     @Then("User searched for {string} shortname in offers page to check if the product exist with same name")
-    public void userSearchedForSameShortnameInOffersPage(String shortName) {
+    public void userSearchedForSameShortnameInOffersPage(String shortName) throws IOException {
         switchToOfferPage();
 
-        OffersPage offersPage = new OffersPage(textContextSetup.driver);
+        OffersPage offersPage = textContextSetup.pageObjectManager.getOffersPage();
         offersPage.searchItem(shortName);
-        textContextSetup.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        textContextSetup.testBase.WebDriverManager().manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         textContextSetup.offersPageProductName = offersPage.getProductName();
     }
 
@@ -37,14 +35,8 @@ public class OfferPageStepDefinition {
 
     private void switchToOfferPage() {
         //if switched to offer page -> skil below part of code
-        //if (textContextSetup.driver.getCurrentUrl().equalsIgnoreCase("https://rahulshettyacademy.com/seleniumPractise/#/offers"))
-
         LandingPage landingPage = textContextSetup.pageObjectManager.getLandingPage();
         landingPage.selectTopDealsLink();
-        Set<String> s1 = textContextSetup.driver.getWindowHandles();
-        Iterator<String> i1 = s1.iterator();
-        String parentWindow = i1.next();
-        String childWindow = i1.next();
-        textContextSetup.driver.switchTo().window(childWindow);
+        textContextSetup.genericUtils.SwitchWindowsToChild();
     }
 }

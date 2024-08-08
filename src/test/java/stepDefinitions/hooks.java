@@ -3,6 +3,8 @@ package stepDefinitions;
 import io.cucumber.java.After;
 import utils.TestContextSetup;
 
+import java.io.IOException;
+
 public class hooks {
     TestContextSetup textContextSetup;
 
@@ -11,7 +13,7 @@ public class hooks {
     }
 
     @After
-    public void tearDown() {
-        textContextSetup.driver.quit();
+    public void tearDown() throws IOException {
+        textContextSetup.testBase.WebDriverManager().quit();
     }
 }
