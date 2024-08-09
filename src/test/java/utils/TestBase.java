@@ -5,8 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class TestBase  {
@@ -25,6 +25,7 @@ public class TestBase  {
            if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
                //firefox code
            }
+           driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
            driver.get(url);
        }
 

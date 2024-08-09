@@ -6,25 +6,23 @@ import pageObjects.LandingPage;
 import pageObjects.OffersPage;
 import pageObjects.PageObjectManager;
 import utils.TestContextSetup;
-
 import java.io.IOException;
-import java.time.Duration;
 
 public class OfferPageStepDefinition {
     TestContextSetup textContextSetup;
     PageObjectManager pageObjectManager;
+    OffersPage offersPage;
 
     public OfferPageStepDefinition(TestContextSetup textContextSetup) {
         this.textContextSetup = textContextSetup;
+        offersPage = textContextSetup.pageObjectManager.getOffersPage();
     }
 
     @Then("^User searched for (.+) shortname in offers page to check if the product exist with same name$")
     public void userSearchedForSameShortnameInOffersPage(String shortName) throws IOException {
         switchToOfferPage();
 
-        OffersPage offersPage = textContextSetup.pageObjectManager.getOffersPage();
         offersPage.searchItem(shortName);
-        textContextSetup.testBase.WebDriverManager().manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         textContextSetup.offersPageProductName = offersPage.getProductName();
     }
 
@@ -34,7 +32,6 @@ public class OfferPageStepDefinition {
     }
 
     private void switchToOfferPage() {
-        //if switched to offer page -> skil below part of code
         LandingPage landingPage = textContextSetup.pageObjectManager.getLandingPage();
         landingPage.selectTopDealsLink();
         textContextSetup.genericUtils.SwitchWindowsToChild();
