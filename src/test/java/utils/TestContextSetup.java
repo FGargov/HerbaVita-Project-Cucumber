@@ -1,7 +1,5 @@
 package utils;
 
-import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import pageObjects.PageObjectManager;
 
 import java.io.IOException;

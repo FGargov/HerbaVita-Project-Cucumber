@@ -20,7 +20,6 @@ public class TestBase  {
 
        if (driver == null) {
            if (prop.getProperty("browser").equalsIgnoreCase("chrome")) {
-               //System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//src//test//resources//chromedriver");//излишен файл
                driver = new ChromeDriver();
            }
            if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {

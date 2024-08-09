@@ -18,7 +18,7 @@ public class OfferPageStepDefinition {
         this.textContextSetup = textContextSetup;
     }
 
-    @Then("User searched for {string} shortname in offers page to check if the product exist with same name")
+    @Then("^User searched for (.+) shortname in offers page to check if the product exist with same name$")
     public void userSearchedForSameShortnameInOffersPage(String shortName) throws IOException {
         switchToOfferPage();
 

@@ -2,7 +2,6 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.LandingPage;
 import utils.TestContextSetup;
 
@@ -19,7 +18,7 @@ public class LandingPageStepDefinition {
 
     }
 
-    @When("User searched with shortname {string} and expected actual name of product")
+    @When("^User searched with shortname (.+) and expected actual name of product$")
     public void userSearchedWithShortnameAndExtractedActualName(String shortName) {
         LandingPage landingPage = testContextSetup.pageObjectManager.getLandingPage();
         landingPage.searchItem(shortName);
