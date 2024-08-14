@@ -1,5 +1,6 @@
  Feature: Search and Place the order for Products
 
+   @OffersPage
    Scenario Outline: Search Experience for product search in both home and offers page
 
      Given User is on Green Card Landing page

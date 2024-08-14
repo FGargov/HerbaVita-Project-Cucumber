@@ -1,7 +1,8 @@
  Feature: Place the order for Products
 
+   @PlaceOrder
    Scenario Outline: Search Experience for product search in both home and offers page
-#     @OffersPage
+
      Given User is on Green Card Landing page
      When User searched with shortname <Name> and expected actual name of product
      And Added "3" items of the selected product to card
