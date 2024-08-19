@@ -91,6 +91,9 @@
         <configuration>
           <parallel>methods</parallel>
           <useUnlimitedThreads>true</useUnlimitedThreads>
+          <includes>
+            <include>**/JUnitTestRunner.java</include>
+          </includes>
         </configuration>
       </plugin>
     </plugins>
