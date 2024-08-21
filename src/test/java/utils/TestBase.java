@@ -20,26 +20,30 @@ public class TestBase  {
        Properties prop = new Properties();
        prop.load(fis);
        String url = prop.getProperty("QAUrl");
+       String browserProperties = prop.getProperty("browser");
+       String mavenBrowser = System.getProperty("browser");
+
+       String browser = mavenBrowser != null ? mavenBrowser : browserProperties;
 
        if (driver == null) {
-           if (prop.getProperty("browser").equalsIgnoreCase("chrome")) {
+           if (browser != null && browser.equalsIgnoreCase("chrome")) {
                ChromeOptions options = new ChromeOptions();
 
-               // Проверка дали headless режим трябва да бъде активиран
                if (prop.getProperty("headless").equalsIgnoreCase("true")) {
                    options.addArguments("headless");
                    options.addArguments("window-size=1920,1080"); // Настройки за резолюция
                }
 
                driver = new ChromeDriver(options);
-           }
-           if (prop.getProperty("browser").equalsIgnoreCase("firefox")) {
+           } else if (browser != null && browser.equalsIgnoreCase("firefox")) {
                FirefoxOptions options = new FirefoxOptions();
 
                if (prop.getProperty("headless").equalsIgnoreCase("true")) {
                    options.addArguments("--headless");
                }
                driver = new FirefoxDriver(options);
+           } else {
+               throw new IllegalArgumentException("A valid browser is not set: " + browser);
            }
            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
            driver.get(url);
