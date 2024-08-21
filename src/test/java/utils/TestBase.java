@@ -32,6 +32,9 @@ public class TestBase  {
                if (prop.getProperty("headless").equalsIgnoreCase("true")) {
                    options.addArguments("headless");
                    options.addArguments("window-size=1920,1080"); // Настройки за резолюция
+                   options.addArguments("--disable-dev-shm-usage");
+                   options.addArguments("--remote-debugging-port=9222");
+                   options.addArguments("--disable-gpu");
                }
 
                driver = new ChromeDriver(options);
