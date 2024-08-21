@@ -35,6 +35,9 @@ public class TestBase  {
                    options.addArguments("--disable-dev-shm-usage");
                    options.addArguments("--remote-debugging-port=9222");
                    options.addArguments("--disable-gpu");
+                   options.setBinary("/usr/bin/google-chrome");
+                   options.addArguments("--verbose");
+
                }
 
                driver = new ChromeDriver(options);
