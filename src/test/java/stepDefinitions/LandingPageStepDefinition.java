@@ -30,7 +30,7 @@ public class LandingPageStepDefinition {
     }
 
     @When("Added {string} items of the selected product to card")
-    public void addedItemsOfTheSelectedProductCard(String quantity) {
+    public void addedItemsOfTheSelectedProductCard(String quantity) throws InterruptedException {
         landingPage.incrementQuantity(Integer.parseInt(quantity));
     }
 }

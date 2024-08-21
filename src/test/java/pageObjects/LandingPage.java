@@ -2,12 +2,17 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class LandingPage {
     public WebDriver driver;
+    public WebDriverWait wait;
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Инициализация на WebDriverWait с 10 секунди timeout
     }
 
     private By search = By.xpath("//input[@type='search']");
@@ -36,9 +41,10 @@ public class LandingPage {
         return driver.getTitle();
     }
 
-    public void incrementQuantity(int quantity) {
+    public void incrementQuantity(int quantity) throws InterruptedException {
         int i = quantity - 1;
         while (i > 0) {
+            wait.until(ExpectedConditions.elementToBeClickable(increment));
             driver.findElement(increment).click();
             i--;
         }
