@@ -44,7 +44,7 @@ public class LandingPage {
     public void incrementQuantity(int quantity) throws InterruptedException {
         int i = quantity - 1;
         while (i > 0) {
-            wait.until(ExpectedConditions.elementToBeClickable(increment));//това го добавям тук, защото има проблем с Jenkins при Windows 10 VM с timeouts
+            //wait.until(ExpectedConditions.elementToBeClickable(increment));//това го добавям тук, защото има проблем с Jenkins при Windows 10 VM с timeouts
             driver.findElement(increment).click();
             i--;
         }
