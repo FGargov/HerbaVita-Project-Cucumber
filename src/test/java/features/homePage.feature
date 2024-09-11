@@ -10,13 +10,12 @@ Feature: Home Page
   Scenario: Display the site logo correctly
     Then I should see the site logo displayed correctly
 
-  @Skip
   @SmokeTest @RegressionTest
   Scenario: Navigation menu functionality
-    When I click on each navigation menu item
-    Then I should be directed to the correct page
+    When I click on first menu item and I should be directed to the correct page
+    Then I click on second menu item and I should be directed to the correct page
 
-  @Skip
   @RegressionTest
   Scenario: Display promotional banners
-    Then I should see promotional banners displayed on the home page
+    When I should see promotional banners displayed on the home page
+    Then I click on the promotional banner and I should be directed to the promotional page
