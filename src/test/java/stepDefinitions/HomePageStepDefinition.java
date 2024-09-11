@@ -46,7 +46,7 @@ public class HomePageStepDefinition {
             homePage.getWait().until(ExpectedConditions.urlToBe(expectedUrl));
 
             String currentUrl = homePage.getCurrentUrl();
-            Assert.assertEquals("The redirection is not to the correct page!", expectedUrl, currentUrl);
+            verifyRedirectionToCorrectPage(expectedUrl, currentUrl);
     }
 
     @When("I click on second menu item and I should be directed to the correct page")
@@ -58,7 +58,7 @@ public class HomePageStepDefinition {
         homePage.getWait().until(ExpectedConditions.urlToBe(expectedUrl));
 
         String currentUrl = homePage.getCurrentUrl();
-        Assert.assertEquals("The redirection is not to the correct page!", expectedUrl, currentUrl);
+        verifyRedirectionToCorrectPage(expectedUrl, currentUrl);
     }
 
     @When("I should see promotional banners displayed on the home page")
@@ -87,4 +87,7 @@ public class HomePageStepDefinition {
         Assert.assertEquals("The product title is not displayed correctly", "CR7 DRIVE С ВКУС НА АКАЙ БЕРИ", productTitle);
     }
 
+    private void verifyRedirectionToCorrectPage(String currentUrl, String expectedUrl) {
+        Assert.assertEquals("The redirection is not to the correct page!", expectedUrl, currentUrl);
+    }
 }
