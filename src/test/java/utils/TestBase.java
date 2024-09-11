@@ -62,6 +62,7 @@ public class TestBase  {
             } else {
                 throw new IllegalArgumentException("A valid browser is not set: " + browser);
             }
+            driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
             driver.get(url);
         }
