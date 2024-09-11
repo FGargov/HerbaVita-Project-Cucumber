@@ -1,12 +1,8 @@
-package CucumberOptions;
+package cucumberOptions;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-
-import java.io.File;
-import java.io.IOException;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -18,9 +14,7 @@ import java.io.IOException;
                 "html:target/cucumber.html",
                 "json:target/cucumber.json",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                "rerun:target/failed-scenarios.txt" // Тук се посочва къде да се запишат неуспешните сценарии
-        }
-)
+                "rerun:target/failed-scenarios-rerun.txt"
+        })
 public class FailedTestRunner {
-
 }

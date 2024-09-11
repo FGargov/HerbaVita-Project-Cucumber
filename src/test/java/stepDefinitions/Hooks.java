@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import com.aventstack.extentreports.reporter.FileUtil;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
@@ -14,20 +13,20 @@ import java.io.File;
 import java.io.IOException;
 
 public class Hooks {
-    TestContextSetup textContextSetup;
+    private TestContextSetup testContextSetup;
 
     public Hooks(TestContextSetup textContextSetup) {
-        this.textContextSetup = textContextSetup;
+        this.testContextSetup = textContextSetup;
     }
 
     @After
     public void tearDown() throws IOException {
-        textContextSetup.testBase.WebDriverManager().quit();
+        testContextSetup.getTestBase().WebDriverManager().quit();
     }
 
     @AfterStep
     public void AddScreenshot(Scenario scenario) throws IOException {
-        WebDriver driver = textContextSetup.testBase.WebDriverManager();
+        WebDriver driver = testContextSetup.getTestBase().WebDriverManager();
         if (scenario.isFailed()) {
             File sourcePath = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);

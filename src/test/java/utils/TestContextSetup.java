@@ -5,15 +5,26 @@ import pageObjects.PageObjectManager;
 import java.io.IOException;
 
 public class TestContextSetup {
-    public String landingPageProductName;
-    public String offersPageProductName;
-    public PageObjectManager pageObjectManager;
-    public TestBase testBase;
-    public GenericUtils genericUtils;
+    private PageObjectManager pageObjectManager;
+    private TestBase testBase;
+    private GenericUtils genericUtils;
 
     public TestContextSetup() throws IOException {
         testBase = new TestBase();
         pageObjectManager = new PageObjectManager(testBase.WebDriverManager());
         genericUtils = new GenericUtils(testBase.WebDriverManager());
+    }
+
+
+    public PageObjectManager getPageObjectManager() {
+        return pageObjectManager;
+    }
+
+    public TestBase getTestBase() {
+        return testBase;
+    }
+
+    public GenericUtils getGenericUtils() {
+        return genericUtils;
     }
 }
