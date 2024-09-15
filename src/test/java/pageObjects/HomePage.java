@@ -38,10 +38,15 @@ public class HomePage {
         return driver.getCurrentUrl().equals(expectedURL);
     }
 
+    public WebElement getHomePageLink() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(homePageLogo));
+        return driver.findElement(homePageLogo);
+    }
 
     public boolean isLogoDisplayed() {
        return driver.findElement(homePageLogo).isDisplayed();
     }
+
 
     public List<WebElement> getNavigationMenuItems() {
         return driver.findElements(menuItems);

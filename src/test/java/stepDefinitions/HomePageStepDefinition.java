@@ -17,8 +17,8 @@ public class HomePageStepDefinition {
 
     public HomePageStepDefinition(TestContextSetup testContextSetup) {
         this.testContextSetup = testContextSetup;
-        homePage = testContextSetup.getPageObjectManager().getHomePage();
-        offerPage = testContextSetup.getPageObjectManager().getOfferPage();
+        this.homePage = testContextSetup.getPageObjectManager().getHomePage();
+        this.offerPage = testContextSetup.getPageObjectManager().getOfferPage();
     }
 
     @Given("I am on the home page")
@@ -51,10 +51,11 @@ public class HomePageStepDefinition {
 
     @When("I click on second menu item and I should be directed to the correct page")
     public void clickOnSecondNavigationMenuItem() {
-        WebElement firstMenuItem = homePage.getNavigationMenuItems().get(1);
+        homePage.getHomePageLink().click();
+        WebElement secondMenuItem = homePage.getNavigationMenuItems().get(1);
 
-        String expectedUrl = firstMenuItem.getAttribute("href");
-        homePage.clickMenuItem(firstMenuItem);
+        String expectedUrl = secondMenuItem.getAttribute("href");
+        homePage.clickMenuItem(secondMenuItem);
         homePage.getWait().until(ExpectedConditions.urlToBe(expectedUrl));
 
         String currentUrl = homePage.getCurrentUrl();
