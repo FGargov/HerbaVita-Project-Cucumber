@@ -24,8 +24,8 @@ public class LoginPageStepDefinitions {
 
     public LoginPageStepDefinitions(TestContextSetup testContextSetup) {
         this.testContextSetup = testContextSetup;
-        loginPage = testContextSetup.getPageObjectManager().getLoginPage();
-        dashboardPage = testContextSetup.getPageObjectManager().getDashboardPage();
+        this.loginPage = testContextSetup.getPageObjectManager().getLoginPage();
+        this.dashboardPage = testContextSetup.getPageObjectManager().getDashboardPage();
     }
 
     @Given("I am on the login page")

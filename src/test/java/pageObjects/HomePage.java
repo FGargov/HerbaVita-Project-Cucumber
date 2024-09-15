@@ -10,13 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class HomePage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
     }
 
     //private By homePageLogo = By.xpath("//a[@class='wd-logo wd-main-logo']//img");
@@ -39,7 +36,7 @@ public class HomePage {
     }
 
     public WebElement getHomePageLink() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(homePageLogo));
+        waitForElementVisible(homePageLogo);
         return driver.findElement(homePageLogo);
     }
 
@@ -66,12 +63,12 @@ public class HomePage {
     }
 
     public WebElement getBuyNowButton() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(buyNowButton));
+        waitForElementVisible(buyNowButton);
         return driver.findElement(buyNowButton);
     }
 
     public boolean getOfferFrame() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(offerFrame));
+        waitForElementVisible(offerFrame);
         return driver.findElement(offerFrame).isDisplayed();
     }
 

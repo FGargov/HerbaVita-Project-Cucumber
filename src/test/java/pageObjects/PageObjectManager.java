@@ -8,6 +8,7 @@ public class PageObjectManager {
     private OfferPage offerPage;
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
+    private ProductSearchPage productSearchPage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -31,5 +32,10 @@ public class PageObjectManager {
     public DashboardPage getDashboardPage() {
         dashboardPage = new DashboardPage(driver);
         return dashboardPage;
+    }
+
+    public ProductSearchPage getProductSearchPage() {
+        productSearchPage = new ProductSearchPage(driver);
+        return productSearchPage;
     }
 }

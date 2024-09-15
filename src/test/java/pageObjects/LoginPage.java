@@ -11,14 +11,11 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
-public class LoginPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class LoginPage extends BasePage {
     private Actions actions;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
         this.actions = new Actions(driver);
     }
 

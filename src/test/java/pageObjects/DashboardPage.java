@@ -10,14 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class DashboardPage {
-
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class DashboardPage extends BasePage {
 
     public DashboardPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
     }
 
     private By profileTitle = By.xpath("//h1[contains(@class,'entry-title title') and normalize-space(text())='Моят профил']");
@@ -49,35 +45,6 @@ public class DashboardPage {
 
     public boolean isProfileTitleDisplayed() {
         return waitForElementVisible(profileTitle).isDisplayed();
-    }
-
-    public boolean isWelcomeMessageDisplayed() {
-        return waitForElementVisible(welcomeMessage).isDisplayed();
-    }
-
-    public boolean isOrdersLinkDisplayed() {
-        scrollToElement(ordersLink);
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(ordersLink));
-        return waitForElementVisible(ordersLink).isDisplayed();
-    }
-
-    public boolean isDownloadsLinkDisplayed() {
-        return waitForElementVisible(downloadsLink).isDisplayed();
-    }
-
-    public boolean isLogoutLinkDisplayed() {
-        return waitForElementVisible(logoutLink).isDisplayed();
-    }
-
-    private WebElement waitForElementVisible(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-    private void scrollToElement(By locator) {
-        WebElement element = driver.findElement(locator);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public void verifyLinkUrl(By elementLocator, String expectedUrl) {
