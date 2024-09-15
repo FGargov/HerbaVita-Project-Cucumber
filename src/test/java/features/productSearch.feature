@@ -2,41 +2,52 @@ Feature: Product Search
 
   Background:
     Given I am on the home page
-  @Pending
+
     @SmokeTest
     Scenario Outline: Search for existing product and verify results
 
       When I search for <Name> in the search field
-      Then I should see <Name> in the search results
-      And The number of search results should be <ExpectedCount>
+      Then I should see suggestions related to <Name>
+      And The number of search suggestions should be <ExpectedCount>
 
       Examples:
         | Name | ExpectedCount |
         | хербал алое концентрат | 2  |
-        | протеинов бар          | 3  |
+        | протеинови блокчета  | 1  |
 
-  @Pending
+
+    @Pending
     @RegressionTest
     Scenario Outline: Search for a non-existing product
 
       When I search for <Name> in the search field
-      Then I should see a message saying "Не бяха намерени продукти, отговарящи на критериите Ви."
+      Then I should see a message saying "No products found"
 
       Examples:
       | Name |
       | мултивитамин |
       | ментов чай |
 
-  @Pending
+
     @RegressionTest
     Scenario Outline: Display relevant suggestions while type in the search box
 
-      When I start typing <Name> in the search field
-      Then I should see suggestions related to <Name>
-      And The suggestions should contain at least <ExpectedCount> items
-      And I should see the "View all results" button
+      When I search for <Name> in the search field
+      Then The suggestions should contain at least <ExpectedCount> items
+      And I should see the "VIEW ALL RESULTS" button
 
       Examples:
         | Name | ExpectedCount |
         | чай  | 3 |
-        | алое | 2 |
+        | алое | 6 |
+
+
+    @RegressionTest
+    Scenario Outline: Click on "View all results" button and view the search results page
+      When I search for <Name> in the search field
+      When I click on the "View all results" button
+      Then I should be directed to the result page for <Name> product
+
+      Examples:
+        | Name |
+        | алое  |
