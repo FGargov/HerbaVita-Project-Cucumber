@@ -9,6 +9,7 @@ public class PageObjectManager {
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
     private ProductSearchPage productSearchPage;
+    private ShoppingCartPage shoppingCartPage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -37,5 +38,10 @@ public class PageObjectManager {
     public ProductSearchPage getProductSearchPage() {
         productSearchPage = new ProductSearchPage(driver);
         return productSearchPage;
+    }
+
+    public ShoppingCartPage getShoppingCartPage() {
+        shoppingCartPage = new ShoppingCartPage(driver);
+        return shoppingCartPage;
     }
 }
