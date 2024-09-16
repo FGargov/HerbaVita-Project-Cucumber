@@ -11,11 +11,11 @@ import utils.TestContextSetup;
 
 import java.util.List;
 
-public class ProductSearchStepDefinition {
+public class ProductSearchStepDefinitions {
     private TestContextSetup testContextSetup;
     private ProductSearchPage productSearchPage;
 
-    public ProductSearchStepDefinition(TestContextSetup testContextSetup) {
+    public ProductSearchStepDefinitions(TestContextSetup testContextSetup) {
         this.testContextSetup = testContextSetup;
         productSearchPage = testContextSetup.getPageObjectManager().getProductSearchPage();
     }
@@ -23,7 +23,7 @@ public class ProductSearchStepDefinition {
 
     @When("^I search for (.*) in the search field$")
     public void searchProductInSearchField(String productName) {
-        productSearchPage.typeProductName(productSearchPage.getProductSearchField(), productName);
+        productSearchPage.searchForProduct(productName);
     }
 
     @Then("^I should see suggestions related to (.*)$")

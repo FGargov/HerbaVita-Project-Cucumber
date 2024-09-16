@@ -26,13 +26,6 @@ public class ProductSearchPage extends BasePage {
         return this.productSearchField;
     }
 
-    public void typeProductName(By productSearchField, String productName) {
-        waitForElementVisible(productSearchField);
-        WebElement searchProductField = driver.findElement(productSearchField);
-        searchProductField.clear();
-        searchProductField.sendKeys(productName);
-    }
-
     public WebElement getAllResultsButton() {
         waitForElementVisible(allResultsButton);
         return driver.findElement(allResultsButton);
@@ -55,5 +48,9 @@ public class ProductSearchPage extends BasePage {
 
     public WebElement getResultsPageTitle() {
         return driver.findElement(resultsPageTitle);
+    }
+
+    public void searchForProduct(String productName) {
+        typeProductName(productSearchField, productName);
     }
 }
