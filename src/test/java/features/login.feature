@@ -21,4 +21,4 @@ Feature: User Login
       When Enter the username "fero2"
       And Enter the password "fero123"
       And Click on the login button
-      Then Should see an error message saying "ERROR : The username or password you entered is incorrect. Lost your password ?"
+      But Should see an error message saying "ERROR : The username or password you entered is incorrect. Lost your password ?"
