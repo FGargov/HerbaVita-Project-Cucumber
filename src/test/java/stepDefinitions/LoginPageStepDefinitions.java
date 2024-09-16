@@ -1,9 +1,6 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import lombok.extern.log4j.Log4j2;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -17,6 +14,7 @@ public class LoginPageStepDefinitions {
     private TestContextSetup testContextSetup;
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
+    private final String MY_PROFILE = "https://herba-vita.eu/stage/moyat-profil/";
     private final String ORDERS_LINK = "https://herba-vita.eu/stage/moyat-profil/orders/";
     private final String DOWNLOADS_LINK = "https://herba-vita.eu/stage/moyat-profil/downloads/";
     private final String  LOGOUT_LINK = "https://herba-vita.eu/stage/moyat-profil/customer-logout/?_wpnonce=31143fab33";
@@ -34,8 +32,7 @@ public class LoginPageStepDefinitions {
         loginPage.clickOnLoginPageIcon(loginPage.getLoginPageIcon());
 
         String currentUrl = loginPage.getCurrentUrl();
-        String expectedUrl = "https://herba-vita.eu/stage/moyat-profil/";
-        verifyOfferPageUrl(currentUrl, expectedUrl);
+        verifyOfferPageUrl(currentUrl, MY_PROFILE);
     }
 
     @When("Enter the username {string}")
@@ -59,9 +56,8 @@ public class LoginPageStepDefinitions {
         loginPage.clickOnLoginButton(loginPage.getLoginButton());
 
         String currentUrl = loginPage.getCurrentUrl();
-        String expectedUrl = "https://herba-vita.eu/stage/moyat-profil/";
 
-        verifyIsLoginSuccessful(currentUrl, expectedUrl);
+        verifyIsLoginSuccessful(currentUrl, MY_PROFILE );
     }
 
     @Then("I should be logged in successfully")
@@ -76,7 +72,7 @@ public class LoginPageStepDefinitions {
         verifyAllLinks();
     }
 
-    @Then("Should see an error message saying {string}")
+    @But("Should see an error message saying {string}")
     public void shouldSeeErrorMessage(String expectedErrorMessage) {
         String actualErrorMessage = loginPage.getErrorMessage();
         verifyErrorMessage(actualErrorMessage, expectedErrorMessage);

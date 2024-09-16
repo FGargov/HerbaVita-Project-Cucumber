@@ -1,6 +1,5 @@
 package pageObjects;
 
-import io.cucumber.java.en_old.Ac;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -9,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
 
 public class LoginPage extends BasePage {
     private Actions actions;
@@ -38,7 +36,7 @@ public class LoginPage extends BasePage {
         return this.passwordLocator;
     }
 
-    public WebElement getErrorMessageLocator() {
+    public WebElement getErrorMessageElement() {
         return driver.findElement(errorMessageLocator);
     }
 
@@ -100,28 +98,5 @@ public class LoginPage extends BasePage {
             takeScreenshot("error_occurred.png");
             throw e;
         }
-    }
-
-    private void takeScreenshot(String fileName) {
-        try {
-            String projectDirectory = System.getProperty("user.dir");
-            String screenshotDirectory = projectDirectory + "/screenshots/";
-
-            File directory = new File(screenshotDirectory);
-            if (!directory.exists()) {
-                directory.mkdirs();
-            }
-
-            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            File destinationFile = new File(screenshotDirectory + fileName);
-            FileUtils.copyFile(screenshot, destinationFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void scrollDown(WebElement button) {
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", button);
     }
 }

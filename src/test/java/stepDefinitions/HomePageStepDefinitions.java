@@ -10,12 +10,12 @@ import pageObjects.HomePage;
 import pageObjects.OfferPage;
 import utils.TestContextSetup;
 
-public class HomePageStepDefinition {
+public class HomePageStepDefinitions {
     private TestContextSetup testContextSetup;
     private HomePage homePage;
     private OfferPage offerPage;
 
-    public HomePageStepDefinition(TestContextSetup testContextSetup) {
+    public HomePageStepDefinitions(TestContextSetup testContextSetup) {
         this.testContextSetup = testContextSetup;
         this.homePage = testContextSetup.getPageObjectManager().getHomePage();
         this.offerPage = testContextSetup.getPageObjectManager().getOfferPage();

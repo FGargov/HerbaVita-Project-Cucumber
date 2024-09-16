@@ -12,7 +12,6 @@ public class GenericUtils {
         this.driver = driver;
     }
 
-    //Целта е да се премине (суичне) от текущия прозорец (parent window) към новоотворен прозорец или таб (child window) в браузъра.
     public void SwitchWindowsToChild() {
         Set<String> s1 = driver.getWindowHandles();
         Iterator<String> i1 = s1.iterator();
