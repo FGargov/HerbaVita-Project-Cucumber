@@ -39,7 +39,7 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public void clickOnSearchButton(WebElement button) {
-        waitForElementVisible(searchButton);
+        waitForElementVisibleByLocator(searchButton);
         button.click();
     }
 
@@ -76,7 +76,7 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public void changeProductQuantity(String productName, String quantity) {
-        WebElement quantityElement = waitForElementVisible(
+        WebElement quantityElement = waitForElementVisibleByLocator(
                 By.xpath("//span[contains(text(), '" + productName + "')]/ancestor::li//input[@type='number']"));
 
         scrollToElement(quantityElement);
@@ -90,7 +90,7 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public void removeProductFromCart(String productName) {
-        waitForElementVisible(removeProductFromCart);
+        waitForElementVisibleByLocator(removeProductFromCart);
         WebElement removeProduct = driver.findElement(removeProductFromCart);
         removeProduct.click();
         wait.until(ExpectedConditions.invisibilityOf(removeProduct));
@@ -98,7 +98,7 @@ public class ShoppingCartPage extends BasePage {
         productsToRemove.removeIf(product -> product.getText().contains(productName));
     }
     public void verifySearchResultAreDisplayed() {
-        waitForElementVisible(productResults);
+        waitForElementVisibleByLocator(productResults);
         List<WebElement> allSearchResults = getAllProductResults();
 
         Assert.assertTrue("No search results found!", !allSearchResults.isEmpty());

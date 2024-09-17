@@ -2,13 +2,8 @@ package pageObjects;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class DashboardPage extends BasePage {
 
@@ -44,17 +39,17 @@ public class DashboardPage extends BasePage {
     }
 
     public boolean isProfileTitleDisplayed() {
-        return waitForElementVisible(profileTitle).isDisplayed();
+        return waitForElementVisibleByLocator(profileTitle).isDisplayed();
     }
 
     public void verifyLinkUrl(By elementLocator, String expectedUrl) {
-        WebElement element = waitForElementVisible(elementLocator);
+        WebElement element = waitForElementVisibleByLocator(elementLocator);
         String actualUrl = element.getAttribute("href");
         Assert.assertEquals("The URL is incorrect for the element: " + elementLocator.toString(), expectedUrl, actualUrl);
     }
 
     public void verifyLogoutLinkUrl(By elementLocator, String expectedUrl) {
-        WebElement element = waitForElementVisible(elementLocator);
+        WebElement element = waitForElementVisibleByLocator(elementLocator);
         String actualUrl = element.getAttribute("href");
 
         String expectedStaticUrl = expectedUrl.split("\\?_wpnonce")[0];

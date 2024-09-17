@@ -18,12 +18,16 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    protected WebElement waitForElementVisible(By locator) {
+    protected WebElement waitForElementVisibleByLocator(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    protected WebElement waitForElementVisible(WebElement element) {
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
     protected void typeProductName(By productSearchField, String productName) {
-        waitForElementVisible(productSearchField);
+        waitForElementVisibleByLocator(productSearchField);
         WebElement searchProductField = driver.findElement(productSearchField);
         searchProductField.clear();
         searchProductField.sendKeys(productName);

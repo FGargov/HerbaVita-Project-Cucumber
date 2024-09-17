@@ -27,22 +27,22 @@ public class ProductSearchPage extends BasePage {
     }
 
     public WebElement getAllResultsButton() {
-        waitForElementVisible(allResultsButton);
+        waitForElementVisibleByLocator(allResultsButton);
         return driver.findElement(allResultsButton);
     }
 
     public void clickOnAllResultsButton(WebElement button) {
-        waitForElementVisible(allResultsButton);
+        waitForElementVisibleByLocator(allResultsButton);
         button.click();
     }
 
     public List<WebElement> getProductsAutocompleteSuggestions() {
-        waitForElementVisible(productsAutocompleteSuggestions);
+        waitForElementVisibleByLocator(productsAutocompleteSuggestions);
         return driver.findElements(productsAutocompleteSuggestions);
     }
 
     public WebElement getErrorMessage() {
-        waitForElementVisible(notFoundProductsMessage);
+        waitForElementVisibleByLocator(notFoundProductsMessage);
         return driver.findElement(notFoundProductsMessage);
     }
 

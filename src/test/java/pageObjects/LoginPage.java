@@ -47,14 +47,14 @@ public class LoginPage extends BasePage {
     }
 
     public void typeUsername(By usernameLocator, String username) {
-        waitForElementVisible(usernameLocator);
+        waitForElementVisibleByLocator(usernameLocator);
         WebElement usernameField = driver.findElement(usernameLocator);
         usernameField.clear();
         usernameField.sendKeys(username);
     }
 
     public void typePassword(By passwordLocator, String password) {
-        waitForElementVisible(passwordLocator);
+        waitForElementVisibleByLocator(passwordLocator);
         driver.findElement(passwordLocator).clear();
         driver.findElement(passwordLocator).sendKeys(password);
     }
@@ -73,7 +73,7 @@ public class LoginPage extends BasePage {
     }
 
     public WebElement getLoginButton() {
-        waitForElementVisible(loginButton);
+        waitForElementVisibleByLocator(loginButton);
         return driver.findElement(loginButton);
     }
 
@@ -83,7 +83,7 @@ public class LoginPage extends BasePage {
 
             takeScreenshot("before_error_check.png");
 
-            wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessageLocator));
+            waitForElementVisibleByLocator(errorMessageLocator);
             WebElement errorElement = driver.findElement(errorMessageLocator);
             return errorElement.getText();
         } catch (Exception e) {
