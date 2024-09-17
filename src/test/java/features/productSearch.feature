@@ -16,7 +16,6 @@ Feature: Product Search
         | протеинови блокчета  | 1  |
 
 
-    @Pending
     @RegressionTest
     Scenario Outline: Search for a non-existing product
 

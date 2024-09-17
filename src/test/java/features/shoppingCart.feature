@@ -28,7 +28,7 @@ Feature: Shopping Cart
       | Name | Quantity |
       | ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ | 3 |
 
-  @Pending
+
     @RegressionTest
   Scenario Outline: Remove a product from the shopping cart
     When I search for <Name> in the search field and click on the search button
