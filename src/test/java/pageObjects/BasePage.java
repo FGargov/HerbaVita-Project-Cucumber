@@ -47,13 +47,23 @@ public class BasePage {
         }
     }
 
-    protected void scrollDown(WebElement button) {
+    protected void scrollToElement(WebElement locator) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", button);
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", locator);
     }
 
-    public void scrollDownByOffset() {
+    protected void scrollDownByOffset() {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("window.scrollBy(0,400)");
+    }
+
+    protected void clickOnButton(WebElement button) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", button);
+    }
+
+    protected void waitForPageLoad() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("return document.readyState").equals("complete");
     }
 }

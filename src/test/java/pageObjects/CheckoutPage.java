@@ -1,21 +1,22 @@
 package pageObjects;
 
 import org.junit.Assert;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
+import javax.swing.*;
 import java.util.List;
 
-public class ShoppingCartPage extends BasePage {
+public class CheckoutPage extends BasePage {
     private Actions actions;
-    private List<WebElement> productsToRemove;
 
-    public ShoppingCartPage(WebDriver driver) {
+    public CheckoutPage(WebDriver driver) {
         super(driver);
         this.actions = new Actions(driver);
-        this.productsToRemove = new ArrayList<>();
     }
 
     private By productSearchField = By.xpath("//input[@aria-label='Search']");
@@ -23,8 +24,15 @@ public class ShoppingCartPage extends BasePage {
     private By productResults = By.xpath("//div[contains(@class, 'product-wrapper')]");
     private By addToCartButtonLocator = By.xpath("//a[contains(@class, 'add_to_cart_button') and @data-product_id]");
     private By cartItems = By.xpath("//ul[contains(@class,'cart_list')]//li[contains(@class,'woocommerce-mini-cart')]");
-    private By removeProductFromCart = By.xpath("//a[@class='remove remove_from_cart_button']");
+    private By orderButton = By.xpath("//a[contains(@class,'button checkout')]");
 
+    public WebDriverWait getWait() {
+        return this.wait;
+    }
+
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
     public WebElement getSearchButton() {
         return driver.findElement(searchButton);
     }
@@ -33,6 +41,9 @@ public class ShoppingCartPage extends BasePage {
         return driver.findElement(addToCartButtonLocator);
     }
 
+    public WebElement getOrderButton() {
+        return driver.findElement(orderButton);
+    }
 
     public void searchForProduct(String productName) {
         typeProductName(productSearchField, productName);
@@ -41,6 +52,10 @@ public class ShoppingCartPage extends BasePage {
     public void clickOnSearchButton(WebElement button) {
         waitForElementVisible(searchButton);
         button.click();
+    }
+
+    public void clickOnOrderButton(WebElement button) {
+       clickOnButton(button);
     }
 
     public void addProductToCart(String productName) {
@@ -55,7 +70,6 @@ public class ShoppingCartPage extends BasePage {
                 WebElement addToCartButton = getAddToCartButton();
                 addToCartButton.click();
 
-                productsToRemove.add(product);
                 break;
             }
         }
@@ -65,38 +79,6 @@ public class ShoppingCartPage extends BasePage {
         return driver.findElements(productResults);
     }
 
-    private boolean isCartEmpty() {
-        List<WebElement> items = driver.findElements(cartItems);
-        return items.isEmpty();
-    }
-
-    public int getProductQuantity(String productName) {
-        WebElement quantityElement = driver.findElement(By.xpath("//input[contains(@class,'input-text qty')]"));
-        return Integer.parseInt(quantityElement.getAttribute("value"));
-    }
-
-    public void changeProductQuantity(String productName, String quantity) {
-        WebElement quantityElement = waitForElementVisible(
-                By.xpath("//span[contains(text(), '" + productName + "')]/ancestor::li//input[@type='number']"));
-
-        scrollToElement(quantityElement);
-
-        quantityElement.clear();
-        quantityElement.sendKeys(quantity);
-        wait.until(ExpectedConditions.attributeToBe(quantityElement, "value", quantity));
-
-        String actualResult = quantityElement.getAttribute("value");
-        Assert.assertEquals("Quantity was not updated correctly", Integer.parseInt(quantity), Integer.parseInt(actualResult));
-    }
-
-    public void removeProductFromCart(String productName) {
-        waitForElementVisible(removeProductFromCart);
-        WebElement removeProduct = driver.findElement(removeProductFromCart);
-        removeProduct.click();
-        wait.until(ExpectedConditions.invisibilityOf(removeProduct));
-
-        productsToRemove.removeIf(product -> product.getText().contains(productName));
-    }
     public void verifySearchResultAreDisplayed() {
         waitForElementVisible(productResults);
         List<WebElement> allSearchResults = getAllProductResults();
@@ -110,13 +92,9 @@ public class ShoppingCartPage extends BasePage {
         Assert.assertFalse("No search results found!", isCartEmpty);
     }
 
-    public void verifyListOfProductsIsEmpty() {
-        Assert.assertEquals("List of products is not empty!", 0, productsToRemove.size());
+    private boolean isCartEmpty() {
+        List<WebElement> items = driver.findElements(cartItems);
+        return items.isEmpty();
     }
 
-    public void verifyShoppingCartIsEmpty() {
-        boolean isCartEmpty = isCartEmpty();
-
-        Assert.assertTrue("No search results found!", isCartEmpty);
-    }
 }

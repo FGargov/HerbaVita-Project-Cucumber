@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pageObjects.ShoppingCartPage;
@@ -23,7 +24,7 @@ public class ShoppingCartStepDefinitions {
         shoppingCartPage.verifySearchResultAreDisplayed();
     }
 
-    @And("^I have added (.*) to my shopping cart$")
+    @Then("^I have added (.*) to my shopping cart$")
     public void addAllProductsToShoppingCart(String productName) {
         shoppingCartPage.addProductToCart(productName);
         shoppingCartPage.verifyShoppingCartIsNotEmpty();
@@ -50,9 +51,4 @@ public class ShoppingCartStepDefinitions {
     public void verifyListOfProductsIsEmpty() {
         shoppingCartPage.verifyShoppingCartIsEmpty();
     }
-
-//    private void verifyShoppingCartIsEmpty() {
-//        boolean isCartEmpty = shoppingCartPage.isCartEmpty();
-//        Assert.assertFalse("The shopping cart is not empty!", isCartEmpty);
-//    }
 }

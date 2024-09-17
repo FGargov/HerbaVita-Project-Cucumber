@@ -11,6 +11,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class HomePage extends BasePage {
+    private final String HOME_PAGE_URL = "https://herba-vita.eu/stage/";
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -31,8 +32,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean isHomePageURLCorrect() {
-        String expectedURL = "https://herba-vita.eu/stage/";
-        return driver.getCurrentUrl().equals(expectedURL);
+        return driver.getCurrentUrl().equals(HOME_PAGE_URL);
     }
 
     public WebElement getHomePageLink() {
@@ -58,8 +58,7 @@ public class HomePage extends BasePage {
     }
 
     public void clickOnPromoButton(WebElement button) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", button);
+        clickOnButton(button);
     }
 
     public WebElement getBuyNowButton() {

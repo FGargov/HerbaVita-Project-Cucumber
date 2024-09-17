@@ -1,13 +1,9 @@
 package pageObjects;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.File;
-import java.io.IOException;
 
 public class LoginPage extends BasePage {
     private Actions actions;
@@ -36,9 +32,6 @@ public class LoginPage extends BasePage {
         return this.passwordLocator;
     }
 
-    public WebElement getErrorMessageElement() {
-        return driver.findElement(errorMessageLocator);
-    }
 
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
@@ -75,7 +68,7 @@ public class LoginPage extends BasePage {
     }
 
     public void clickOnLoginButton(WebElement button) {
-       scrollDown(button);
+       scrollToElement(button);
        actions.moveToElement(button).click().perform();
     }
 
@@ -86,8 +79,7 @@ public class LoginPage extends BasePage {
 
     public String getErrorMessage() {
         try {
-            JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-            jsExecutor.executeScript("return document.readyState").equals("complete");
+            waitForPageLoad();
 
             takeScreenshot("before_error_check.png");
 

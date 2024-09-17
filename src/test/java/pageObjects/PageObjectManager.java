@@ -10,38 +10,58 @@ public class PageObjectManager {
     private DashboardPage dashboardPage;
     private ProductSearchPage productSearchPage;
     private ShoppingCartPage shoppingCartPage;
+    private CheckoutPage checkoutPage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
     }
 
     public HomePage getHomePage() {
-        homePage = new HomePage(driver);
+        if (homePage == null) {
+            homePage = new HomePage(driver);
+        }
         return homePage;
     }
 
     public OfferPage getOfferPage() {
-        offerPage = new OfferPage(driver);
+        if (offerPage == null) {
+            offerPage = new OfferPage(driver);
+        }
         return offerPage;
     }
 
     public LoginPage getLoginPage() {
-        loginPage = new LoginPage(driver);
+        if (loginPage == null) {
+            loginPage = new LoginPage(driver);
+        }
         return loginPage;
     }
 
     public DashboardPage getDashboardPage() {
-        dashboardPage = new DashboardPage(driver);
+        if (dashboardPage == null) {
+            dashboardPage = new DashboardPage(driver);
+        }
         return dashboardPage;
     }
 
     public ProductSearchPage getProductSearchPage() {
-        productSearchPage = new ProductSearchPage(driver);
+        if (productSearchPage == null) {
+            productSearchPage = new ProductSearchPage(driver);
+        }
         return productSearchPage;
     }
 
     public ShoppingCartPage getShoppingCartPage() {
-        shoppingCartPage = new ShoppingCartPage(driver);
+        if (shoppingCartPage == null) {
+            shoppingCartPage = new ShoppingCartPage(driver);
+        }
         return shoppingCartPage;
+    }
+
+    public CheckoutPage getCheckoutPage() {
+        if (checkoutPage == null) {
+            checkoutPage = new CheckoutPage(driver);
+        }
+        return checkoutPage;
     }
 }

@@ -14,10 +14,10 @@ public class LoginPageStepDefinitions {
     private TestContextSetup testContextSetup;
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
-    private final String MY_PROFILE = "https://herba-vita.eu/stage/moyat-profil/";
-    private final String ORDERS_LINK = "https://herba-vita.eu/stage/moyat-profil/orders/";
-    private final String DOWNLOADS_LINK = "https://herba-vita.eu/stage/moyat-profil/downloads/";
-    private final String  LOGOUT_LINK = "https://herba-vita.eu/stage/moyat-profil/customer-logout/?_wpnonce=31143fab33";
+    private final String MY_PROFILE_URL = "https://herba-vita.eu/stage/moyat-profil/";
+    private final String ORDERS_LINK_URL = "https://herba-vita.eu/stage/moyat-profil/orders/";
+    private final String DOWNLOADS_LINK_URL = "https://herba-vita.eu/stage/moyat-profil/downloads/";
+    private final String LOGOUT_LINK_URL = "https://herba-vita.eu/stage/moyat-profil/customer-logout/?_wpnonce=31143fab33";
 
 
     public LoginPageStepDefinitions(TestContextSetup testContextSetup) {
@@ -32,7 +32,7 @@ public class LoginPageStepDefinitions {
         loginPage.clickOnLoginPageIcon(loginPage.getLoginPageIcon());
 
         String currentUrl = loginPage.getCurrentUrl();
-        verifyOfferPageUrl(currentUrl, MY_PROFILE);
+        verifyOfferPageUrl(currentUrl, MY_PROFILE_URL);
     }
 
     @When("Enter the username {string}")
@@ -57,7 +57,7 @@ public class LoginPageStepDefinitions {
 
         String currentUrl = loginPage.getCurrentUrl();
 
-        verifyIsLoginSuccessful(currentUrl, MY_PROFILE );
+        verifyIsLoginSuccessful(currentUrl, MY_PROFILE_URL);
     }
 
     @Then("I should be logged in successfully")
@@ -79,7 +79,7 @@ public class LoginPageStepDefinitions {
     }
 
     private void verifyOfferPageUrl(String currentUrl, String expectedUrl) {
-        Assert.assertTrue("The login page URL is incorrect", currentUrl.contains(expectedUrl));
+        Assert.assertTrue("The offer page URL is incorrect", currentUrl.contains(expectedUrl));
     }
 
     private void verifyUsernames(String username, String typedUsername) {
@@ -105,8 +105,8 @@ public class LoginPageStepDefinitions {
     }
 
     public void verifyAllLinks() {
-        dashboardPage.verifyLinkUrl(dashboardPage.getOrdersLink(), ORDERS_LINK);
-        dashboardPage.verifyLinkUrl(dashboardPage.getDownloadsLink(), DOWNLOADS_LINK);
-        dashboardPage.verifyLogoutLinkUrl(dashboardPage.getLogoutLink(), LOGOUT_LINK);
+        dashboardPage.verifyLinkUrl(dashboardPage.getOrdersLink(), ORDERS_LINK_URL);
+        dashboardPage.verifyLinkUrl(dashboardPage.getDownloadsLink(), DOWNLOADS_LINK_URL);
+        dashboardPage.verifyLogoutLinkUrl(dashboardPage.getLogoutLink(), LOGOUT_LINK_URL);
     }
 }
