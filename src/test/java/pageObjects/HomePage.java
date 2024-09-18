@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -68,4 +69,31 @@ public class HomePage extends BasePage {
         return driver.findElement(offerFrame).isDisplayed();
     }
 
+    public void verifyUserIsOnHomePage() {
+        Assert.assertTrue(getTitleHomePage().contains("Herba-Vita - Независим член на Хербалайф"));
+    }
+
+    public void verifyHomePageURLIsCorrect() {
+        Assert.assertTrue("The home page URL is incorrect", isHomePageURLCorrect());
+    }
+
+    public void verifyHomepageLogoIsDisplayed() {
+        Assert.assertTrue("The site logo is not displayed correctly", isLogoDisplayed());
+    }
+
+    public void verifyOfferFrameIsDisplayed() {
+        Assert.assertTrue("The promotional banner is not displayed correctly", getOfferFrame());
+    }
+
+    public void verifyOfferPageURLIsCorrect(String currentUrl, String expectedUrl) {
+        Assert.assertEquals("The redirection is not to the correct page!", expectedUrl, currentUrl);
+    }
+
+    public void verifyProductTitleIsCorrect(String productTitle) {
+        Assert.assertEquals("The product title is not displayed correctly", "CR7 DRIVE С ВКУС НА АКАЙ БЕРИ", productTitle);
+    }
+
+    public void verifyNavigationToExpectedPage(String currentUrl, String expectedUrl) {
+        Assert.assertEquals("The redirection is not to the correct page!", expectedUrl, currentUrl);
+    }
 }

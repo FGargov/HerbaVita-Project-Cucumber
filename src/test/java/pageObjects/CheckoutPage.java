@@ -110,6 +110,7 @@ public class CheckoutPage extends BasePage {
     }
 
     public void addProductToCart(String productName) {
+        waitForPageLoad();
         List<WebElement> allProducts = getAllProductResults();
 
         for (WebElement product : allProducts) {

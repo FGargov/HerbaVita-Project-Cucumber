@@ -57,4 +57,8 @@ public class DashboardPage extends BasePage {
 
         Assert.assertEquals("The URL is incorrect for the logout link: " + elementLocator.toString(), expectedStaticUrl, actualStaticUrl);
     }
+
+    public void verifyProfileTitle() {
+        Assert.assertTrue("Profile title is not displayed!", isProfileTitleDisplayed());
+    }
 }

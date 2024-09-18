@@ -119,4 +119,8 @@ public class ShoppingCartPage extends BasePage {
 
         Assert.assertTrue("No search results found!", isCartEmpty);
     }
+
+    public void verifyUpdatedQuantity(int expectedQuantity, int actualQuantity) {
+        Assert.assertEquals("Quantity does not match!", expectedQuantity, actualQuantity);
+    }
 }

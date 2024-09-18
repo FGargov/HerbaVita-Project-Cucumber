@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,5 +53,31 @@ public class ProductSearchPage extends BasePage {
 
     public void searchForProduct(String productName) {
         typeProductName(productSearchField, productName);
+    }
+
+    public boolean isProductInSearchSuggestions(String productName) {
+        List<WebElement> suggestions = getProductsAutocompleteSuggestions();
+        return suggestions.stream()
+                .anyMatch(suggestion -> {
+                    WebElement strongElement = suggestion.findElement(By.tagName("strong"));
+                    String productText = strongElement.getText();
+                    return productText.toLowerCase().contains(productName.toLowerCase());
+                });
+    }
+
+    public void verifyErrorMessage(String expectedErrorMessage, String actualErrorMessage) {
+        Assert.assertEquals("Error message is incorrect", expectedErrorMessage, actualErrorMessage);
+    }
+
+    public void verifyNumberOfSearchedProducts(int numberOfResults, int actualNumberOfResults) {
+        Assert.assertEquals("Expected number of results did not match", numberOfResults, actualNumberOfResults);
+    }
+
+    public void verifyViewAllResultsButton(String expectedButtonName, String actualButtonName) {
+        Assert.assertEquals("The button name is incorrect", expectedButtonName, actualButtonName);
+    }
+
+    public void verifyPageTitle(String expectedResultsPageTitle, String resultsPageTitle) {
+        Assert.assertEquals("The results page title is not as expected!", expectedResultsPageTitle, resultsPageTitle);
     }
 }

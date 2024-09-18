@@ -38,7 +38,7 @@ public class ShoppingCartStepDefinitions {
     @And("^I should see the updated quantity of (.*) in my shopping cart and it should be (.*)$")
     public void shouldSeeTheUpdatedQuantity(String productName, int expectedQuantity) {
         int actualQuantity = shoppingCartPage.getProductQuantity(productName);
-        Assert.assertEquals("Quantity does not match!", expectedQuantity, actualQuantity);
+        shoppingCartPage.verifyUpdatedQuantity(expectedQuantity, actualQuantity);
     }
 
     @And("^I remove (.*) from my shopping cart$")

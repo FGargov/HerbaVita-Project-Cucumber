@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -90,5 +91,31 @@ public class LoginPage extends BasePage {
             takeScreenshot("error_occurred.png");
             throw e;
         }
+    }
+
+    public void verifyOfferPageUrl(String currentUrl, String expectedUrl) {
+        Assert.assertTrue("The offer page URL is incorrect", currentUrl.contains(expectedUrl));
+    }
+
+    public void verifyUsernames(String username, String typedUsername) {
+        Assert.assertEquals("The typed username is not correct!", username, typedUsername);
+    }
+
+    public void verifyPasswords(String password, String typedPassword) {
+        Assert.assertEquals("The typed password is not correct!", password, typedPassword);
+    }
+
+    public void verifyIsLoginSuccessful(String currentUrl, String expectedUrl) {
+        Assert.assertTrue("User is not logged in", currentUrl.contains(expectedUrl));
+    }
+
+    public void verifyProfileTitle(WebElement profileTitle) {
+        Assert.assertTrue("User is not logged in", profileTitle.isDisplayed());
+    }
+
+    public void verifyErrorMessage(String actualErrorMessage, String expectedErrorMessage) {
+        String cleanedActualError = actualErrorMessage.replaceAll("\\s+", " ");
+        String cleanedExpectedError = expectedErrorMessage.replaceAll("\\s+", " ");
+        Assert.assertEquals("Error message is incorrect", cleanedExpectedError, cleanedActualError);
     }
 }

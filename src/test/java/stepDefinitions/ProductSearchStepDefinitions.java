@@ -28,40 +28,34 @@ public class ProductSearchStepDefinitions {
 
     @Then("^I should see suggestions related to (.*)$")
     public void shouldSeeProductInSearchResultsInStrongTag(String productName) {
-        List<WebElement> suggestions = productSearchPage.getProductsAutocompleteSuggestions();
-        boolean productFound = suggestions.stream()
-                .anyMatch(suggestion -> {
-                    WebElement strongElement = suggestion.findElement(By.tagName("strong"));
-                    String productText = strongElement.getText();
-                    return productText.toLowerCase().contains(productName.toLowerCase());
-                });
-
-        Assert.assertTrue("Product " + productName + " is not found in the search results", productFound);
+        Assert.assertTrue("Product " + productName + " is not found in the search results",
+                productSearchPage.isProductInSearchSuggestions(productName));
     }
+
 
     @And("^The number of search suggestions should be (.*)$")
     public void numberOfSearchResultsShouldBe(int numberOfSuggestions) {
         int actualNumberOfSuggestions = productSearchPage.getProductsAutocompleteSuggestions().size();
-        verifyNumberOfSearchedProducts(numberOfSuggestions, actualNumberOfSuggestions);
+        productSearchPage.verifyNumberOfSearchedProducts(numberOfSuggestions, actualNumberOfSuggestions);
     }
 
     @Then("I should see a message saying {string}")
     public void shouldSeeErrorMessage(String expectedErrorMessage) {
         String actualErrorMessage = productSearchPage.getErrorMessage().getText();
-        Assert.assertEquals("Error message is incorrect", expectedErrorMessage, actualErrorMessage);
+        productSearchPage.verifyErrorMessage(actualErrorMessage, expectedErrorMessage);
     }
 
 
     @Then("^The suggestions should contain at least (.*) items$")
     public void numberOfSuggestionsShouldBe(int numberOfSuggestions) {
         int actualNumberOfSuggestions = productSearchPage.getProductsAutocompleteSuggestions().size();
-        verifyNumberOfSearchedProducts(numberOfSuggestions, actualNumberOfSuggestions);
+        productSearchPage.verifyNumberOfSearchedProducts(numberOfSuggestions, actualNumberOfSuggestions);
     }
 
     @And("I should see the {string} button")
     public void shouldSeeViewAllResultsButton(String expectedButtonName) {
         WebElement actualButtonName = productSearchPage.getAllResultsButton();
-        Assert.assertEquals("The button name is incorrect", expectedButtonName.toLowerCase(), actualButtonName.getText().toLowerCase());
+        productSearchPage.verifyViewAllResultsButton(expectedButtonName.toLowerCase(), actualButtonName.getText().toLowerCase());
     }
 
     @When("I click on the \"View all results\" button")
@@ -74,9 +68,6 @@ public class ProductSearchStepDefinitions {
        String resultsPageTitle = productSearchPage.getResultsPageTitle().getText();
        String expectedResultsPageTitle = "Search Results for: " + productName;
 
-       Assert.assertEquals("The results page title is not as expected!", expectedResultsPageTitle, resultsPageTitle);
-    }
-    private void verifyNumberOfSearchedProducts(int numberOfResults, int actualNumberOfResults) {
-        Assert.assertEquals("Expected number of results did not match", numberOfResults, actualNumberOfResults);
+       productSearchPage.verifyPageTitle(expectedResultsPageTitle, resultsPageTitle);
     }
 }

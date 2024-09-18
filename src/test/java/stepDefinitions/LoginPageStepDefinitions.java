@@ -32,7 +32,7 @@ public class LoginPageStepDefinitions {
         loginPage.clickOnLoginPageIcon(loginPage.getLoginPageIcon());
 
         String currentUrl = loginPage.getCurrentUrl();
-        verifyOfferPageUrl(currentUrl, MY_PROFILE_URL);
+        loginPage.verifyOfferPageUrl(currentUrl, MY_PROFILE_URL);
     }
 
     @When("Enter the username {string}")
@@ -40,7 +40,7 @@ public class LoginPageStepDefinitions {
         loginPage.typeUsername(loginPage.getUsernameLocator(), username);
         String typedUsername = loginPage.getTypedUsername();
 
-        verifyUsernames(username, typedUsername);
+        loginPage.verifyUsernames(username, typedUsername);
     }
 
     @And("Enter the password {string}")
@@ -48,7 +48,7 @@ public class LoginPageStepDefinitions {
         loginPage.typePassword(loginPage.getPasswordLocator(), password);
         String typedPassword = loginPage.getTypedPassword();
 
-        verifyPasswords(password, typedPassword);
+        loginPage.verifyPasswords(password, typedPassword);
     }
 
     @And("Click on the login button")
@@ -57,54 +57,28 @@ public class LoginPageStepDefinitions {
 
         String currentUrl = loginPage.getCurrentUrl();
 
-        verifyIsLoginSuccessful(currentUrl, MY_PROFILE_URL);
+        loginPage.verifyIsLoginSuccessful(currentUrl, MY_PROFILE_URL);
     }
 
     @Then("I should be logged in successfully")
     public void shouldBeLoggedInSuccessfully() {
         WebElement profileTitle = testContextSetup.getTestBase().driver.findElement(dashboardPage.getProfileTitle());
-        verifyProfileTitle(profileTitle);
+        loginPage.verifyProfileTitle(profileTitle);
     }
 
     @And("I should see the user dashboard")
     public void userShouldSeeDashboard() {
-        Assert.assertTrue("Profile title is not displayed!", dashboardPage.isProfileTitleDisplayed());
+        dashboardPage.verifyProfileTitle();
         verifyAllLinks();
     }
 
     @But("Should see an error message saying {string}")
     public void shouldSeeErrorMessage(String expectedErrorMessage) {
         String actualErrorMessage = loginPage.getErrorMessage();
-        verifyErrorMessage(actualErrorMessage, expectedErrorMessage);
+        loginPage.verifyErrorMessage(actualErrorMessage, expectedErrorMessage);
     }
 
-    private void verifyOfferPageUrl(String currentUrl, String expectedUrl) {
-        Assert.assertTrue("The offer page URL is incorrect", currentUrl.contains(expectedUrl));
-    }
-
-    private void verifyUsernames(String username, String typedUsername) {
-        Assert.assertEquals("The typed username is not correct!", username, typedUsername);
-    }
-
-    private void verifyPasswords(String password, String typedPassword) {
-        Assert.assertEquals("The typed password is not correct!", password, typedPassword);
-    }
-
-    private void verifyIsLoginSuccessful(String currentUrl, String expectedUrl) {
-        Assert.assertTrue("User is not logged in", currentUrl.contains(expectedUrl));
-    }
-
-    private void verifyProfileTitle(WebElement profileTitle) {
-        Assert.assertTrue("User is not logged in", profileTitle.isDisplayed());
-    }
-
-    private void verifyErrorMessage(String actualErrorMessage, String expectedErrorMessage) {
-        String cleanedActualError = actualErrorMessage.replaceAll("\\s+", " ");
-        String cleanedExpectedError = expectedErrorMessage.replaceAll("\\s+", " ");
-        Assert.assertEquals("Error message is incorrect", cleanedExpectedError, cleanedActualError);
-    }
-
-    public void verifyAllLinks() {
+    private void verifyAllLinks() {
         dashboardPage.verifyLinkUrl(dashboardPage.getOrdersLink(), ORDERS_LINK_URL);
         dashboardPage.verifyLinkUrl(dashboardPage.getDownloadsLink(), DOWNLOADS_LINK_URL);
         dashboardPage.verifyLogoutLinkUrl(dashboardPage.getLogoutLink(), LOGOUT_LINK_URL);

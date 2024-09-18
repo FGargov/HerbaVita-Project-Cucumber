@@ -23,30 +23,30 @@ public class HomePageStepDefinitions {
 
     @Given("I am on the home page")
     public void userIsOnHomePage() {
-        Assert.assertTrue(homePage.getTitleHomePage().contains("Herba-Vita - Независим член на Хербалайф"));
+        homePage.verifyUserIsOnHomePage();
     }
 
     @Then("I should be on the correct home page URL")
     public void shouldBeOnCorrectHomePageURL() {
-        Assert.assertTrue("The home page URL is incorrect", homePage.isHomePageURLCorrect());
+        homePage.verifyHomePageURLIsCorrect();
     }
 
 
     @Then("I should see the site logo displayed correctly")
     public void shouldSeeSideLogoIsDisplayed() {
-        Assert.assertTrue("The site logo is not displayed correctly", homePage.isLogoDisplayed());
+        homePage.verifyHomepageLogoIsDisplayed();
     }
 
     @When("I click on first menu item and I should be directed to the correct page")
     public void clickOnFirstNavigationMenuItem() {
-            WebElement firstMenuItem = homePage.getNavigationMenuItems().get(0);
+        WebElement firstMenuItem = homePage.getNavigationMenuItems().get(0);
 
-            String expectedUrl = firstMenuItem.getAttribute("href");
-            homePage.clickMenuItem(firstMenuItem);
-            homePage.getWait().until(ExpectedConditions.urlToBe(expectedUrl));
+        String expectedUrl = firstMenuItem.getAttribute("href");
+        homePage.clickMenuItem(firstMenuItem);
+        homePage.getWait().until(ExpectedConditions.urlToBe(expectedUrl));
 
-            String currentUrl = homePage.getCurrentUrl();
-            verifyRedirectionToCorrectPage(expectedUrl, currentUrl);
+        String currentUrl = homePage.getCurrentUrl();
+        homePage.verifyNavigationToExpectedPage(expectedUrl, currentUrl);
     }
 
     @When("I click on second menu item and I should be directed to the correct page")
@@ -59,12 +59,12 @@ public class HomePageStepDefinitions {
         homePage.getWait().until(ExpectedConditions.urlToBe(expectedUrl));
 
         String currentUrl = homePage.getCurrentUrl();
-        verifyRedirectionToCorrectPage(expectedUrl, currentUrl);
+        homePage.verifyNavigationToExpectedPage(expectedUrl, currentUrl);
     }
 
     @When("I should see promotional banners displayed on the home page")
     public void shouldSeePromotionalBanners() {
-        Assert.assertTrue("The promotional banner is not displayed correctly", homePage.getOfferFrame());
+        homePage.verifyOfferFrameIsDisplayed();
     }
 
     @Then("I click on the promotional banner and I should be directed to the promotional page")
@@ -80,15 +80,11 @@ public class HomePageStepDefinitions {
         String currentUrl = homePage.getCurrentUrl();
         String expectedUrl = offerPage.getCurrentUrl();
 
-        Assert.assertEquals("The redirection is not to the correct page!", expectedUrl, currentUrl);
+        homePage.verifyOfferPageURLIsCorrect(expectedUrl, currentUrl);
     }
 
     private void verifyProductTitle() {
         String productTitle = offerPage.getProductTitle();
-        Assert.assertEquals("The product title is not displayed correctly", "CR7 DRIVE С ВКУС НА АКАЙ БЕРИ", productTitle);
-    }
-
-    private void verifyRedirectionToCorrectPage(String currentUrl, String expectedUrl) {
-        Assert.assertEquals("The redirection is not to the correct page!", expectedUrl, currentUrl);
+        homePage.verifyProductTitleIsCorrect(productTitle);
     }
 }
