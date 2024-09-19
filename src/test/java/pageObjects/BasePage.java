@@ -70,8 +70,18 @@ public class BasePage {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("return document.readyState").equals("complete");
     }
+
+    protected void sendKeysUsingJavaScript(WebElement element, String value) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].value='" + value + "';", element);
+    }
+
+
     protected void waitForUrlToBe(String expectedUrl) {
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
     }
 
+    protected void waitAttributeToBe(WebElement elementLocator, String attribute, String value) {
+        wait.until(ExpectedConditions.attributeToBe(elementLocator, attribute, value));
+    }
 }

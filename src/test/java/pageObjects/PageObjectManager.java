@@ -1,5 +1,6 @@
 package pageObjects;
 
+import bin.ContactFormPage;
 import org.openqa.selenium.WebDriver;
 
 public class PageObjectManager {
@@ -12,6 +13,7 @@ public class PageObjectManager {
     private ShoppingCartPage shoppingCartPage;
     private CheckoutPage checkoutPage;
     private ProductDetailsPage productDetailsPage;
+    private ContactInfoPage contactInfoPage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -71,5 +73,12 @@ public class PageObjectManager {
             productDetailsPage = new ProductDetailsPage(driver);
         }
         return productDetailsPage;
+    }
+
+    public ContactInfoPage getContactInfoPage() {
+        if (contactInfoPage == null) {
+            contactInfoPage = new ContactInfoPage(driver);
+        }
+        return contactInfoPage;
     }
 }
