@@ -11,6 +11,7 @@ public class DashboardPage extends BasePage {
         super(driver);
     }
 
+
     private By profileTitle = By.xpath("//h1[contains(@class,'entry-title title') and normalize-space(text())='Моят профил']");
     private By welcomeMessage = By.xpath("//div[@class='woocommerce-MyAccount-content']//p/strong[contains(text(),'fero')]");
     private By ordersLink = By.xpath("//div[@class='orders-link']/a");

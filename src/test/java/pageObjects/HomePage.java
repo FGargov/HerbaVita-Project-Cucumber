@@ -10,6 +10,7 @@ import java.util.List;
 
 public class HomePage extends BasePage {
     private final String HOME_PAGE_URL = "https://herba-vita.eu/stage/";
+    private final String PROMO_PRODUCT_TITLE = "CR7 DRIVE С ВКУС НА АКАЙ БЕРИ";
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -90,7 +91,7 @@ public class HomePage extends BasePage {
     }
 
     public void verifyProductTitleIsCorrect(String productTitle) {
-        Assert.assertEquals("The product title is not displayed correctly", "CR7 DRIVE С ВКУС НА АКАЙ БЕРИ", productTitle);
+        Assert.assertEquals("The product title is not displayed correctly", PROMO_PRODUCT_TITLE, productTitle);
     }
 
     public void verifyNavigationToExpectedPage(String currentUrl, String expectedUrl) {

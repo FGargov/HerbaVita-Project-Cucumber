@@ -70,4 +70,8 @@ public class BasePage {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("return document.readyState").equals("complete");
     }
+    protected void waitForUrlToBe(String expectedUrl) {
+        wait.until(ExpectedConditions.urlToBe(expectedUrl));
+    }
+
 }
