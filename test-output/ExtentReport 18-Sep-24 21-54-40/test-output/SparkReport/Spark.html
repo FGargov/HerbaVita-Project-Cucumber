@@ -1,0 +1,1698 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title></title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ce8b10435bcbae260c334c0d0c6b61d2c19b6168/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa bdd-report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary"></span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Sep 18, 2024 09:54:40 PM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@SmokeTest</a><a class="dropdown-item" href="#">@Pending</a><a class="dropdown-item" href="#">@RegressionTest</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Checkout Process</p>
+            <p class="text-sm">
+              <span>9:54:40 PM</span> / <span>00:00:50:433</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Checkout Process</h5>
+<span class='badge badge-success'>09.18.2024 9:54:40 PM</span>
+<span class='badge badge-danger'>09.18.2024 9:55:31 PM</span>
+<span class='badge badge-default'>00:00:50:433</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"> As a user,
+I want to be able to add products to my shopping cart
+So that I can purchase them</div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Proceed to checkout</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>Proceed to checkout</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I find and select ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ using the search</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ is added to my cart</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the order button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I should be taken to the checkout page</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="15"><span class="badge log fail-bg mr-2">Fail</span>Complete purchase with correct billing information</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutStepDefinitions.searchForProductAndClickOnSearchButtonInHomePage(java.lang.String)">
+                <span>Given I find and select ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ using the search field in home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutStepDefinitions.addAllProductsToShoppingCart(java.lang.String)">
+                <span>And ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ is added to my cart and click on the order button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutStepDefinitions.shouldBeOnTheCheckoutPage()">
+                <span>And I am on the checkout page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutStepDefinitions.enterShippingInformation(java.util.List<java.lang.String>)">
+                <span>When I enter the following shipping information and verify that the shipping information is correct</span>
+      <div><table class='markup-table table '><tr><td>Ivan</td></tr><tr><td>Ivanov</td></tr><tr><td>15 Pirin St.</td></tr><tr><td>Sofia</td></tr><tr><td>1618</td></tr><tr><td>+35988712345</td></tr><tr><td>fgargov1@gmail.com</td></tr></table>
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutStepDefinitions.clickOnOrderButton()">
+                <span>And I click on the "ПОРЪЧВАНЕ" button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="stepDefinitions.CheckoutStepDefinitions.verifyConfirmationPage()">
+                <span>And I should see a confirmation page with the order details</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for url to contain "https://herba-vita.eu/stage/porachka-2/order-received/". Current url: "https://herba-vita.eu/stage/porachka-2/" (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.24.0', revision: '748ffc9bc3'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-40-generic', java.version: '11.0.24'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 130.0.1, moz:accessibilityChecks: false, moz:buildID: 20240913135723, moz:debuggerAddress: 127.0.0.1:3925, moz:geckodriverVersion: 0.35.0, moz:headless: false, moz:platformVersion: 6.8.0-40-generic, moz:processID: 3262474, moz:profile: /tmp/rust_mozprofileeHqi0u, moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://127.0.0.1:3925/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Linux x86...}
+Session ID: 577d8e74-0ffc-46b4-a1a1-415ae4ee699d
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at stepDefinitions.CheckoutStepDefinitions.verifyConfirmationPage(CheckoutStepDefinitions.java:86)
+	at ✽.I should see a confirmation page with the order details(file:///home/fgargov/Documents/IdeaProjects/Cucumber/HerbaVitaCucumber/src/test/java/features/checkoutProduct.feature:34)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>stepDefinitions.Hooks.AddScreenshot(io.cucumber.java.Scenario)</span>
+      <div>Image:
+          <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='./screenshots/embedded1.png' src="./screenshots/embedded1.png">
+  
+    
+
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepDefinitions.CheckoutStepDefinitions.verifyConfirmationMessage(java.lang.String)">
+                <span>And А confirmation message saying "Благодарности. Вашата поръчка беше получена." should be displayed</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="33"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Contact Form via Chat</p>
+            <p class="text-sm">
+              <span>9:55:31 PM</span> / <span>00:00:07:917</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Contact Form via Chat</h5>
+<span class='badge badge-success'>09.18.2024 9:55:31 PM</span>
+<span class='badge badge-danger'>09.18.2024 9:55:39 PM</span>
+<span class='badge badge-default'>00:00:07:917</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=33</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="34"><span class="badge log fail-bg mr-2">Fail</span>Submit multiple contact information with different messages</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" >
+                <span>Given I open the chat pop up window</span>
+      <div>Step undefined
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>When I submit the following contact information:</span>
+      <div><table class='markup-table table '><tr><td>Name</td><td>Email</td><td>Message</td></tr><tr><td>fero</td><td>lansan608@gmail.com</td><td>What is the best protein shake?</td></tr><tr><td>John</td><td>john.doe@example.com</td><td>Can I get a discount?</td></tr><tr><td>Maria</td><td>maria.smith@gmail.com</td><td>What are the shipping options?</td></tr></table>
+      </div>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>Then Then I should see each sent message in the chat window</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="44"><span class="badge log fail-bg mr-2">Fail</span>Successfully send chat transcript to email</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" >
+                <span>Given I open the chat pop up window</span>
+      <div>Step undefined
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>When I submit the following contact information:</span>
+      <div><table class='markup-table table '><tr><td>Ivan Ivanov</td></tr><tr><td>asd123@abv.bg</td></tr><tr><td>0887123456</td></tr><tr><td>I am interested in buying this product.</td></tr></table>
+      </div>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>Then I have an open chat conversation</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And I select the "Стенограма по имейл" option from the chat options menu</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And I enter the email "fgargo1@gmail.com"</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And I click on "Изпрати" button</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="60"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Home Page</p>
+            <p class="text-sm">
+              <span>9:55:39 PM</span> / <span>00:00:29:930</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Home Page</h5>
+<span class='badge badge-success'>09.18.2024 9:55:39 PM</span>
+<span class='badge badge-danger'>09.18.2024 9:56:09 PM</span>
+<span class='badge badge-default'>00:00:29:930</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=60</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="61"><span class="badge log pass-bg mr-2">Pass</span>Load the home page</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.shouldBeOnCorrectHomePageURL()">
+                <span>Then I should be on the correct home page URL</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="67"><span class="badge log pass-bg mr-2">Pass</span>Display the site logo correctly</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.shouldSeeSideLogoIsDisplayed()">
+                <span>Then I should see the site logo displayed correctly</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="73"><span class="badge log pass-bg mr-2">Pass</span>Navigation menu functionality</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.clickOnFirstNavigationMenuItem()">
+                <span>When I click on first menu item and I should be directed to the correct page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.clickOnSecondNavigationMenuItem()">
+                <span>Then I click on second menu item and I should be directed to the correct page</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="81"><span class="badge log pass-bg mr-2">Pass</span>Display promotional banners</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.shouldSeePromotionalBanners()">
+                <span>When I should see promotional banners displayed on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.clickOnOfferBannerAndDirectedToPromoPage()">
+                <span>Then I click on the promotional banner and I should be directed to the promotional page</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="89"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">User Login</p>
+            <p class="text-sm">
+              <span>9:56:09 PM</span> / <span>00:00:25:978</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">User Login</h5>
+<span class='badge badge-success'>09.18.2024 9:56:09 PM</span>
+<span class='badge badge-danger'>09.18.2024 9:56:35 PM</span>
+<span class='badge badge-default'>00:00:25:978</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=89</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="90"><span class="badge log pass-bg mr-2">Pass</span>Successful login with valid credentials</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.userIsOnLoginPage()">
+                <span>Given I am on the login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.enterUsername(java.lang.String)">
+                <span>When Enter the username "fero"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.enterPassword(java.lang.String)">
+                <span>And Enter the password "f&JY3HNfLigRmLXQFEN&YCe4"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.clickOnLoginButton()">
+                <span>And Click on the login button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.shouldBeLoggedInSuccessfully()">
+                <span>Then I should be logged in successfully</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.userShouldSeeDashboard()">
+                <span>And I should see the user dashboard</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="106"><span class="badge log pass-bg mr-2">Pass</span>Unsuccessful login with invalid credentials</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.userIsOnLoginPage()">
+                <span>Given I am on the login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.enterUsername(java.lang.String)">
+                <span>When Enter the username "fero2"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.enterPassword(java.lang.String)">
+                <span>And Enter the password "fero123"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.clickOnLoginButton()">
+                <span>And Click on the login button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginPageStepDefinitions.shouldSeeErrorMessage(java.lang.String)">
+                <span>But Should see an error message saying "ERROR : The username or password you entered is incorrect. Lost your password ?"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="120"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Product Details Page</p>
+            <p class="text-sm">
+              <span>9:56:35 PM</span> / <span>00:00:03:758</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Product Details Page</h5>
+<span class='badge badge-success'>09.18.2024 9:56:35 PM</span>
+<span class='badge badge-danger'>09.18.2024 9:56:38 PM</span>
+<span class='badge badge-default'>00:00:03:758</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=120</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="121"><span class="badge log fail-bg mr-2">Fail</span>View detailed information about a product from the category</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.HomePageStepDefinitions.userIsOnHomePage()">
+                <span>Given I am on the home page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" >
+                <span>When I click on "Шейкове" navigation menu item</span>
+      <div>Step undefined
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>Then Then I should see products listed under the "Шейкове" category</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>When I click on the first product in the list</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>Then I should see the product details page</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And The product name displayed correctly</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And The product price displayed correctly</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And The product description displayed correctly</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And The product availability displayed correctly</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And Images of the product displayed correctly</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="143"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Product Search</p>
+            <p class="text-sm">
+              <span>9:56:38 PM</span> / <span>00:00:55:755</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Product Search</h5>
+<span class='badge badge-success'>09.18.2024 9:56:38 PM</span>
+<span class='badge badge-danger'>09.18.2024 9:57:34 PM</span>
+<span class='badge badge-default'>00:00:55:755</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=143</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="144"><span class="badge log pass-bg mr-2">Pass</span>Search for existing product and verify results</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="145"><span class="badge log pass-bg mr-2">Pass</span>Search for existing product and verify results</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for хербал алое концентрат in the search field</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I should see suggestions related to хербал алое концентрат</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And The number of search suggestions should be 2</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="155"><span class="badge log pass-bg mr-2">Pass</span>Search for existing product and verify results</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for протеинови блокчета in the search field</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I should see suggestions related to протеинови блокчета</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And The number of search suggestions should be 1</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="165"><span class="badge log pass-bg mr-2">Pass</span>Search for a non-existing product</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="166"><span class="badge log pass-bg mr-2">Pass</span>Search for a non-existing product</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for мултивитамин in the search field</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I should see a message saying "No products found"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="174"><span class="badge log pass-bg mr-2">Pass</span>Search for a non-existing product</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for ментов чай in the search field</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I should see a message saying "No products found"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="182"><span class="badge log pass-bg mr-2">Pass</span>Display relevant suggestions while type in the search box</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="183"><span class="badge log pass-bg mr-2">Pass</span>Display relevant suggestions while type in the search box</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for чай in the search field</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The suggestions should contain at least 3 items</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I should see the "VIEW ALL RESULTS" button</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="193"><span class="badge log pass-bg mr-2">Pass</span>Display relevant suggestions while type in the search box</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for алое in the search field</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The suggestions should contain at least 6 items</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I should see the "VIEW ALL RESULTS" button</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="203"><span class="badge log pass-bg mr-2">Pass</span>Click on "View all results" button and view the search results page</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="204"><span class="badge log pass-bg mr-2">Pass</span>Click on "View all results" button and view the search results page</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for алое in the search field</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I click on the "View all results" button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I should be directed to the result page for алое product</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="214"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Shopping Cart</p>
+            <p class="text-sm">
+              <span>9:57:34 PM</span> / <span>00:00:44:877</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Shopping Cart</h5>
+<span class='badge badge-success'>09.18.2024 9:57:34 PM</span>
+<span class='badge badge-danger'>09.18.2024 9:58:19 PM</span>
+<span class='badge badge-default'>00:00:44:877</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=214</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"> As a user,
+I want to be able to add products to my shopping cart
+So that I can purchase them later</div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="215"><span class="badge log pass-bg mr-2">Pass</span>Add products to shopping cart</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="216"><span class="badge log pass-bg mr-2">Pass</span>Add products to shopping cart</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ in the search field and click on the search button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I have added ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ to my shopping cart</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="224"><span class="badge log pass-bg mr-2">Pass</span>Update the quantity of a product in my shopping cart</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="225"><span class="badge log pass-bg mr-2">Pass</span>Update the quantity of a product in my shopping cart</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ in the search field and click on the search button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I have added ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ to my shopping cart</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I change the quantity of ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ to 3</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I should see the updated quantity of ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ in my shopping cart and it should be 3</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="237"><span class="badge log pass-bg mr-2">Pass</span>Remove a product from the shopping cart</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="238"><span class="badge log pass-bg mr-2">Pass</span>Remove a product from the shopping cart</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I search for ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ in the search field and click on the search button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then I have added ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ to my shopping cart</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I remove ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ from my shopping cart</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And My shopping cart is empty</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.openqa.selenium.TimeoutException</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.TimeoutException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:55:20 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='28'>And I should see a confirmation page with the order details</a>
+<div class="">
+<span class="badge badge-default">Checkout Process.Complete purchase with correct billing information.And I should see a confirmation page with the order details</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">3</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>8</span>
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@SmokeTest</p>
+<p class="duration text-sm">9 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@SmokeTest</h4>
+<span status="pass" class='badge log pass-bg'>8 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:54:40 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='3'>Proceed to checkout</a>
+<div class="">
+<span class="badge badge-default">Checkout Process.Proceed to checkout</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:55:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='33' id='44'>Successfully send chat transcript to email</a>
+<div class="">
+<span class="badge badge-default">Contact Form via Chat.Successfully send chat transcript to email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:55:39 PM</td>
+<td>
+<a href="#" class="linked" test-id='60' id='61'>Load the home page</a>
+<div class="">
+<span class="badge badge-default">Home Page.Load the home page</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:55:42 PM</td>
+<td>
+<a href="#" class="linked" test-id='60' id='67'>Display the site logo correctly</a>
+<div class="">
+<span class="badge badge-default">Home Page.Display the site logo correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:55:49 PM</td>
+<td>
+<a href="#" class="linked" test-id='60' id='73'>Navigation menu functionality</a>
+<div class="">
+<span class="badge badge-default">Home Page.Navigation menu functionality</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:56:09 PM</td>
+<td>
+<a href="#" class="linked" test-id='89' id='90'>Successful login with valid credentials</a>
+<div class="">
+<span class="badge badge-default">User Login.Successful login with valid credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:56:38 PM</td>
+<td>
+<a href="#" class="linked" test-id='143' id='145'>Search for existing product and verify results</a>
+<div class="">
+<span class="badge badge-default">Product Search.Search for existing product and verify results</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:56:45 PM</td>
+<td>
+<a href="#" class="linked" test-id='143' id='155'>Search for existing product and verify results</a>
+<div class="">
+<span class="badge badge-default">Product Search.Search for existing product and verify results</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:57:34 PM</td>
+<td>
+<a href="#" class="linked" test-id='214' id='216'>Add products to shopping cart</a>
+<div class="">
+<span class="badge badge-default">Shopping Cart.Add products to shopping cart</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>3</span>
+</span>
+<p class="name">@Pending</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@Pending</h4>
+<span status="fail" class='badge log badge-danger'>3 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:55:31 PM</td>
+<td>
+<a href="#" class="linked" test-id='33' id='34'>Submit multiple contact information with different messages</a>
+<div class="">
+<span class="badge badge-default">Contact Form via Chat.Submit multiple contact information with different messages</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:55:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='33' id='44'>Successfully send chat transcript to email</a>
+<div class="">
+<span class="badge badge-default">Contact Form via Chat.Successfully send chat transcript to email</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:56:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='120' id='121'>View detailed information about a product from the category</a>
+<div class="">
+<span class="badge badge-default">Product Details Page.View detailed information about a product from the category</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>11</span>
+<span class='badge log badge-danger'>3</span>
+</span>
+<p class="name">@RegressionTest</p>
+<p class="duration text-sm">14 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@RegressionTest</h4>
+<span status="pass" class='badge log pass-bg'>11 passed</span>
+<span status="fail" class='badge log badge-danger'>3 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:54:40 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='3'>Proceed to checkout</a>
+<div class="">
+<span class="badge badge-default">Checkout Process.Proceed to checkout</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:55:02 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='15'>Complete purchase with correct billing information</a>
+<div class="">
+<span class="badge badge-default">Checkout Process.Complete purchase with correct billing information</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:55:31 PM</td>
+<td>
+<a href="#" class="linked" test-id='33' id='34'>Submit multiple contact information with different messages</a>
+<div class="">
+<span class="badge badge-default">Contact Form via Chat.Submit multiple contact information with different messages</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:55:49 PM</td>
+<td>
+<a href="#" class="linked" test-id='60' id='73'>Navigation menu functionality</a>
+<div class="">
+<span class="badge badge-default">Home Page.Navigation menu functionality</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:55:58 PM</td>
+<td>
+<a href="#" class="linked" test-id='60' id='81'>Display promotional banners</a>
+<div class="">
+<span class="badge badge-default">Home Page.Display promotional banners</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:56:23 PM</td>
+<td>
+<a href="#" class="linked" test-id='89' id='106'>Unsuccessful login with invalid credentials</a>
+<div class="">
+<span class="badge badge-default">User Login.Unsuccessful login with invalid credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:56:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='120' id='121'>View detailed information about a product from the category</a>
+<div class="">
+<span class="badge badge-default">Product Details Page.View detailed information about a product from the category</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:56:52 PM</td>
+<td>
+<a href="#" class="linked" test-id='143' id='166'>Search for a non-existing product</a>
+<div class="">
+<span class="badge badge-default">Product Search.Search for a non-existing product</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:57:00 PM</td>
+<td>
+<a href="#" class="linked" test-id='143' id='174'>Search for a non-existing product</a>
+<div class="">
+<span class="badge badge-default">Product Search.Search for a non-existing product</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:57:08 PM</td>
+<td>
+<a href="#" class="linked" test-id='143' id='183'>Display relevant suggestions while type in the search box</a>
+<div class="">
+<span class="badge badge-default">Product Search.Display relevant suggestions while type in the search box</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:57:15 PM</td>
+<td>
+<a href="#" class="linked" test-id='143' id='193'>Display relevant suggestions while type in the search box</a>
+<div class="">
+<span class="badge badge-default">Product Search.Display relevant suggestions while type in the search box</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:57:23 PM</td>
+<td>
+<a href="#" class="linked" test-id='143' id='204'>Click on "View all results" button and view the search results page</a>
+<div class="">
+<span class="badge badge-default">Product Search.Click on "View all results" button and view the search results page</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:57:45 PM</td>
+<td>
+<a href="#" class="linked" test-id='214' id='225'>Update the quantity of a product in my shopping cart</a>
+<div class="">
+<span class="badge badge-default">Shopping Cart.Update the quantity of a product in my shopping cart</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:57:58 PM</td>
+<td>
+<a href="#" class="linked" test-id='214' id='238'>Remove a product from the shopping cart</a>
+<div class="">
+<span class="badge badge-default">Shopping Cart.Remove a product from the shopping cart</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Sep 18, 2024 09:54:40 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Sep 18, 2024 09:58:19 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Features Passed</p>
+<h3>4</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Features Failed</p>
+<h3>3</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Features</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='57%'>
+<b>4</b> features passed
+</small>
+</div>
+<div>
+<small data-tooltip='42%'><b>3</b> features failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Scenarios</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='child-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='80%'><b>17</b> scenarios passed</small></div>
+<div>
+<small data-tooltip='19%'><b>4</b> scenarios failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Steps</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='grandchild-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='79%'><b>77</b> steps passed</small></div>
+<div>
+<small data-tooltip='4%'><b>4</b> steps failed,
+<b>16</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"Checkout Process":50.433,"Contact Form via Chat":7.917,"Home Page":29.93,"User Login":25.978,"Product Details Page":3.758,"Product Search":55.755,"Shopping Cart":44.877
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@SmokeTest</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>88.889%</td>
+</tr>
+<tr>
+<td>@Pending</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@RegressionTest</td>
+<td>11</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>78.571%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 4,
+failParent: 3,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 17,
+failChild: 4,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 77,
+failGrandChild: 4,
+warningGrandChild: 0,
+skipGrandChild: 16,
+infoGrandChild: 0,
+eventsCount: 5,
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c05cd28cde1617b9d0c05a831daff6cb97fd9fd5/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>
