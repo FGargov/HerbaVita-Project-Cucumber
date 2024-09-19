@@ -2,9 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.*;
 import lombok.extern.log4j.Log4j2;
-import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageObjects.DashboardPage;
 import pageObjects.LoginPage;
 import utils.TestContextSetup;
@@ -28,11 +26,10 @@ public class LoginPageStepDefinitions {
 
     @Given("I am on the login page")
     public void userIsOnLoginPage() {
-        loginPage.getWait().until(ExpectedConditions.visibilityOf(loginPage.getLoginPageIcon()));
         loginPage.clickOnLoginPageIcon(loginPage.getLoginPageIcon());
 
         String currentUrl = loginPage.getCurrentUrl();
-        loginPage.verifyOfferPageUrl(currentUrl, MY_PROFILE_URL);
+        loginPage.verifyProfilePageUrl(currentUrl, MY_PROFILE_URL);
     }
 
     @When("Enter the username {string}")

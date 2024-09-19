@@ -1,6 +1,5 @@
 package pageObjects;
 
-import bin.ContactFormPage;
 import org.openqa.selenium.WebDriver;
 
 public class PageObjectManager {

@@ -93,8 +93,8 @@ public class LoginPage extends BasePage {
         }
     }
 
-    public void verifyOfferPageUrl(String currentUrl, String expectedUrl) {
-        Assert.assertTrue("The offer page URL is incorrect", currentUrl.contains(expectedUrl));
+    public void verifyProfilePageUrl(String currentUrl, String expectedUrl) {
+        Assert.assertTrue("The profile page URL is incorrect", currentUrl.contains(expectedUrl));
     }
 
     public void verifyUsernames(String username, String typedUsername) {
@@ -117,5 +117,19 @@ public class LoginPage extends BasePage {
         String cleanedActualError = actualErrorMessage.replaceAll("\\s+", " ");
         String cleanedExpectedError = expectedErrorMessage.replaceAll("\\s+", " ");
         Assert.assertEquals("Error message is incorrect", cleanedExpectedError, cleanedActualError);
+    }
+
+    public void verifyLoginFormIsVisible(){
+        Assert.assertTrue("The login form is not visible!", isLoginFormVisible());
+    }
+
+    private boolean isLoginFormVisible() {
+        return isElementVisible(usernameLocator) &&
+                isElementVisible(passwordLocator) &&
+                isElementVisible(loginButton);
+    }
+
+    private boolean isElementVisible(By locator) {
+        return driver.findElement(locator).isDisplayed();
     }
 }

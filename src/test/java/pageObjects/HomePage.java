@@ -10,6 +10,7 @@ import java.util.List;
 
 public class HomePage extends BasePage {
     private final String HOME_PAGE_URL = "https://herba-vita.eu/stage/";
+    private final String MY_PROFILE_LOGIN_PAGE_URL = "https://herba-vita.eu/stage/moyat-profil/";
     private final String PROMO_PRODUCT_TITLE = "CR7 DRIVE С ВКУС НА АКАЙ БЕРИ";
 
     public HomePage(WebDriver driver) {
@@ -21,6 +22,7 @@ public class HomePage extends BasePage {
     private By menuItems = By.xpath("//ul[@id='menu-categories']//li/a");
     private By offerFrame = By.xpath("//rs-slide[@data-anim='ms:600;']");
     private By buyNowButton = By.xpath("//*[@id='slider-45-slide-110-layer-10']");
+    private By logoutButton = By.xpath("//div[@class='customer-logout-link']//a[1]");
 
     public WebDriverWait getWait() {
         return this.wait;
@@ -33,10 +35,19 @@ public class HomePage extends BasePage {
     public boolean isHomePageURLCorrect() {
         return driver.getCurrentUrl().equals(HOME_PAGE_URL);
     }
+    public boolean isLoginPageURLCorrect() {
+        waitForPageLoad();
+        return driver.getCurrentUrl().equals(MY_PROFILE_LOGIN_PAGE_URL);
+    }
+
 
     public WebElement getHomePageLink() {
         waitForElementVisibleByLocator(homePageLogo);
         return driver.findElement(homePageLogo);
+    }
+
+    public WebElement getLogoutButton() {
+        return driver.findElement(logoutButton);
     }
 
     public boolean isLogoDisplayed() {
@@ -70,12 +81,21 @@ public class HomePage extends BasePage {
         return driver.findElement(offerFrame).isDisplayed();
     }
 
+    public void clickLogoutButton() {
+        waitForElementVisibleByLocator(logoutButton);
+        clickOnButton(getLogoutButton());
+    }
+
     public void verifyUserIsOnHomePage() {
         Assert.assertTrue(getTitleHomePage().contains("Herba-Vita - Независим член на Хербалайф"));
     }
 
     public void verifyHomePageURLIsCorrect() {
         Assert.assertTrue("The home page URL is incorrect", isHomePageURLCorrect());
+    }
+
+    public void verifyLoginPageURLIsCorrect() {
+        Assert.assertTrue("The home page URL is incorrect", isLoginPageURLCorrect());
     }
 
     public void verifyHomepageLogoIsDisplayed() {
