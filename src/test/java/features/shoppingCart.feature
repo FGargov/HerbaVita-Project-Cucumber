@@ -30,7 +30,7 @@ Feature: Shopping Cart
 
 
     @RegressionTest
-  Scenario Outline: Remove a product from the shopping cart
+    Scenario Outline: Remove a product from the shopping cart
     When I search for <Name> in the search field and click on the search button
     Then I have added <Name> to my shopping cart
     And I remove <Name> from my shopping cart
