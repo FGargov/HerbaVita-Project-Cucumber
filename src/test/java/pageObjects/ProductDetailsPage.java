@@ -56,6 +56,7 @@ public class ProductDetailsPage extends BasePage {
     }
     public void verifyProductDetailsPageUrl() {
         waitForPageLoad();
+        waitForUrlToBe(FIRST_PRODUCT_URL);
         String currentUrl = getCurrentUrl();
         String expectedUrl = FIRST_PRODUCT_URL;
 
