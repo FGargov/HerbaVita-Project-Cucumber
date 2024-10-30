@@ -16,8 +16,6 @@ public class TestBase  {
     public WebDriver driver;
 
     public WebDriver WebDriverManager()  throws IOException {
-        //FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//test//resources//global.properties");
-        //FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "global.properties");
         InputStream fis = getClass().getClassLoader().getResourceAsStream("global.properties");
 
         if (fis == null) {
