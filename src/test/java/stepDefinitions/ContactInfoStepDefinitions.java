@@ -1,9 +1,9 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
 import pageObjects.ContactInfoPage;
 import utils.TestContextSetup;
+import utils.TestData;
 
 public class ContactInfoStepDefinitions {
 
@@ -15,18 +15,21 @@ public class ContactInfoStepDefinitions {
         this.contactInfoPage = testContextSetup.getPageObjectManager().getContactInfoPage();
     }
 
-    @Then("I should see the address as {string}")
-    public void shouldSeeTheAddressAs(String expectedAddress) {
+    @Then("I should see the address displayed")
+    public void shouldSeeTheAddressAs() {
+        String expectedAddress = TestData.getContactInfo("address");
         contactInfoPage.verifyAddress(expectedAddress);
     }
 
-    @Then("I should see the phone number as {string}")
-    public void shouldSeeThePhoneNumberAs(String expectedPhone) {
+    @Then("I should see the phone number displayed")
+    public void shouldSeeThePhoneNumberAs() {
+        String expectedPhone = TestData.getContactInfo("phone");
         contactInfoPage.verifyPhoneNumber(expectedPhone);
     }
 
-    @Then("I should see the email as {string}")
-    public void shouldSeeTheEmailAs(String expectedEmail) {
+    @Then("I should see the email displayed")
+    public void shouldSeeTheEmailAs() {
+        String expectedEmail = TestData.getContactInfo("email");
         contactInfoPage.verifyEmail(expectedEmail);
     }
 }

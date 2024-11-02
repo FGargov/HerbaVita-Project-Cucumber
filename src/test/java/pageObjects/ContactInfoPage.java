@@ -16,7 +16,6 @@ public class ContactInfoPage extends BasePage {
     }
 
     public String getAddress() {
-        //scrollToElement(driver.findElement(addressLocator));
         return driver.findElement(addressLocator).getText();
     }
 
