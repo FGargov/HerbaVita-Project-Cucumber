@@ -8,7 +8,7 @@ Feature: Product Search
 
       When I search for <Name> in the search field
       Then I should see suggestions related to <Name>
-      And The number of search suggestions should be <ExpectedCount>
+      And The number of search suggestions should be correct for <Name>
 
       Examples:
         | Name | ExpectedCount |
@@ -20,7 +20,7 @@ Feature: Product Search
     Scenario Outline: Search for a non-existing product
 
       When I search for <Name> in the search field
-      Then I should see a message saying "No products found"
+      Then I should see a message saying "noProductsFound"
 
       Examples:
       | Name |
