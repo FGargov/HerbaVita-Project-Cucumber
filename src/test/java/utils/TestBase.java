@@ -23,11 +23,11 @@ public class TestBase  {
     }
 
     private void initializeDriver() throws IOException{
-        String browser = System.getProperty("browser", ConfigManager.getProperty("browser"));
+        BrowserType browserType = BrowserType.valueOf(ConfigManager.getProperty("browser", "CHROME").toUpperCase());
         boolean isHeadless = Boolean.parseBoolean(ConfigManager.getProperty("headless", "false"));
 
-        switch (browser.toLowerCase()) {
-            case "chrome":
+        switch (browserType) {
+            case CHROME:
                 ChromeOptions chromeOptions = new ChromeOptions();
                 if (isHeadless) {
                     chromeOptions.addArguments("--headless");
@@ -35,7 +35,7 @@ public class TestBase  {
                 }
                 driver.set(new ChromeDriver(chromeOptions));
                 break;
-            case "firefox":
+            case FIREFOX:
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 if (isHeadless) {
                     firefoxOptions.addArguments("--headless");
@@ -43,7 +43,7 @@ public class TestBase  {
                 }
                 driver.set(new FirefoxDriver(firefoxOptions));
                 break;
-            case "edge":
+            case EDGE:
                 EdgeOptions edgeOptions = new EdgeOptions();
                 if (isHeadless) {
                     edgeOptions.addArguments("--headless");
@@ -52,7 +52,7 @@ public class TestBase  {
                 driver.set(new EdgeDriver(edgeOptions));
                 break;
             default:
-                throw new IllegalArgumentException("Browser not supported: " + browser);
+                throw new IllegalArgumentException("Browser not supported: " + browserType);
         }
 
         driver.get().manage().window().maximize();
