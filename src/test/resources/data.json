@@ -1,0 +1,48 @@
+{
+  "userData": {
+    "validUser": {
+      "username": "fero",
+      "password": "f&JY3HNfLigRmLXQFEN&YCe4"
+    },
+    "invalidUser": {
+      "username": "fero2",
+      "password": "fero123"
+    }
+  },
+  "productData": {
+    "product1": {
+      "name": "ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ",
+      "quantity": 1
+    },
+    "product2": {
+      "name": "мултивитамин",
+      "quantity": 1
+    },
+    "product3": {
+      "name": "ментов чай",
+      "quantity": 1
+    },
+    "product4": {
+      "name": "чай",
+      "suggestionsCount": 3
+    },
+    "product5": {
+      "name": "алое",
+      "suggestionsCount": 6
+    }
+  },
+  "addressData": {
+    "firstName": "Ivan",
+    "lastName": "Ivanov",
+    "address": "15 Pirin St.",
+    "city": "Sofia",
+    "postalCode": "1618",
+    "phone": "+35988712345",
+    "email": "fgargov1@gmail.com"
+  },
+  "messages": {
+    "noProductsFound": "No products found",
+    "orderConfirmation": "Благодарности. Вашата поръчка беше получена.",
+    "loginError": "ERROR : The username or password you entered is incorrect. Lost your password ?"
+  }
+}
