@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import pageObjects.DashboardPage;
 import pageObjects.LoginPage;
 import utils.TestContextSetup;
+import utils.TestData;
 
 import java.io.IOException;
 
@@ -35,7 +36,18 @@ public class LoginPageStepDefinitions {
     }
 
     @When("Enter the username {string}")
-    public void enterUsername(String username) {
+    public void enterUsername(String usernamePlaceholder) {
+        String username;
+
+        if (usernamePlaceholder.equals("{validUsername}")) {
+            username = TestData.getValidUser().get("username").asText();
+        } else if (usernamePlaceholder.equals("{invalidUsername}")) {
+            username = TestData.getInvalidUser().get("username").asText();
+        } else {
+            throw new IllegalArgumentException("Unknown username placeholder: " + usernamePlaceholder);
+        }
+
+
         loginPage.typeUsername(loginPage.getUsernameLocator(), username);
         String typedUsername = loginPage.getTypedUsername();
 
@@ -43,7 +55,17 @@ public class LoginPageStepDefinitions {
     }
 
     @And("Enter the password {string}")
-    public void enterPassword(String password) {
+    public void enterPassword(String passwordPlaceholder) {
+        String password;
+
+        if (passwordPlaceholder.equals("{validPassword}")) {
+            password = TestData.getValidUser().get("password").asText();
+        } else if (passwordPlaceholder.equals("{invalidPassword}")) {
+            password = TestData.getInvalidUser().get("password").asText();
+        } else {
+            throw new IllegalArgumentException("Unknown password placeholder: " + passwordPlaceholder);
+        }
+
         loginPage.typePassword(loginPage.getPasswordLocator(), password);
         String typedPassword = loginPage.getTypedPassword();
 
@@ -72,7 +94,8 @@ public class LoginPageStepDefinitions {
     }
 
     @But("Should see an error message saying {string}")
-    public void shouldSeeErrorMessage(String expectedErrorMessage) {
+    public void shouldSeeErrorMessage(String errorMessageKey) {
+        String expectedErrorMessage = TestData.getMessage(errorMessageKey);
         String actualErrorMessage = loginPage.getErrorMessage();
         loginPage.verifyErrorMessage(actualErrorMessage, expectedErrorMessage);
     }
