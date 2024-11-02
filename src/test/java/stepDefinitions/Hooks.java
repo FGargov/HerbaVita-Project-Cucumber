@@ -22,12 +22,15 @@ public class Hooks {
 
     @After
     public void tearDown() throws IOException {
-        testContextSetup.getTestBase().WebDriverManager().quit();
+        if (testContextSetup.getTestBase().getDriver() != null) {
+            testContextSetup.getTestBase().getDriver().quit();
+            testContextSetup.getTestBase().removeDriver();
+        }
     }
 
     @AfterStep
     public void AddScreenshot(Scenario scenario) throws IOException {
-        WebDriver driver = testContextSetup.getTestBase().WebDriverManager();
+        WebDriver driver = testContextSetup.getTestBase().getDriver();
         if (scenario.isFailed()) {
             File sourcePath = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
