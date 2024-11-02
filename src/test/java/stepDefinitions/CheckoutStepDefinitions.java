@@ -22,8 +22,8 @@ public class CheckoutStepDefinitions {
     }
 
     @When("^I find and select (.*) using the search$")
-    public void searchForProductAndClickOnSearchButton(String productNamePlaceholder) {
-        String productName = TestData.getProduct("product1").get("name").asText();
+    public void searchForProductAndClickOnSearchButton(String productName) {
+        productName = TestData.getProduct("product1").get("name").asText();
         checkoutPage.searchForProduct(productName);
         checkoutPage.clickOnSearchButton(checkoutPage.getSearchButton());
 
@@ -32,6 +32,7 @@ public class CheckoutStepDefinitions {
 
     @Then("^(.*) is added to my cart$")
     public void addProductToCart(String productName) {
+        productName = TestData.getProduct("product1").get("name").asText();
         checkoutPage.addProductToCart(productName);
         checkoutPage.verifyShoppingCartIsNotEmpty();
     }
