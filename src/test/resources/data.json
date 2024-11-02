@@ -1,4 +1,10 @@
 {
+  "homepage": {
+    "url": "https://herba-vita.eu/stage/",
+    "title": "Herba-Vita - Независим член на Хербалайф",
+    "promoProductTitle": "CR7 DRIVE С ВКУС НА АКАЙ БЕРИ",
+    "loginPageUrl": "https://herba-vita.eu/stage/moyat-profil/"
+  },
   "userData": {
     "validUser": {
       "username": "fero",
@@ -8,6 +14,12 @@
       "username": "fero2",
       "password": "fero123"
     }
+  },
+  "profileUrls": {
+    "myProfileUrl": "https://herba-vita.eu/stage/moyat-profil/",
+    "ordersLinkUrl": "https://herba-vita.eu/stage/moyat-profil/orders/",
+    "downloadsLinkUrl": "https://herba-vita.eu/stage/moyat-profil/downloads/",
+    "logoutLinkUrl": "https://herba-vita.eu/stage/moyat-profil/customer-logout/?_wpnonce=31143fab33"
   },
   "productData": {
     "product1": {
@@ -44,5 +56,10 @@
     "noProductsFound": "No products found",
     "orderConfirmation": "Благодарности. Вашата поръчка беше получена.",
     "loginError": "ERROR : The username or password you entered is incorrect. Lost your password ?"
+  },
+  "contactInfo": {
+    "address": "София, Младост 1",
+    "phone": "0887 684 167",
+    "email": "sales@herba-vita.eu"
   }
 }
