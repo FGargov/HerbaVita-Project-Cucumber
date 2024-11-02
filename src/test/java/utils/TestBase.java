@@ -15,18 +15,6 @@ import java.util.Properties;
 public class TestBase  {
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    private Properties loadProperties() throws IOException {
-        Properties prop = new Properties();
-        InputStream fis = getClass().getClassLoader().getResourceAsStream("global.properties");
-
-        if (fis == null) {
-            throw new FileNotFoundException("Property file not found in the classpath");
-        }
-
-        prop.load(fis);
-        return prop;
-    }
-
     public WebDriver getDriver() throws IOException {
         if (driver.get() == null) {
             initializeDriver();
@@ -35,13 +23,13 @@ public class TestBase  {
     }
 
     private void initializeDriver() throws IOException{
-        Properties prop = loadProperties();
-        String browser = System.getProperty("browser", prop.getProperty("browser"));
+        String browser = System.getProperty("browser", ConfigManager.getProperty("browser"));
+        boolean isHeadless = Boolean.parseBoolean(ConfigManager.getProperty("headless", "false"));
 
         switch (browser.toLowerCase()) {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                if (Boolean.parseBoolean(prop.getProperty("headless", "false"))) {
+                if (isHeadless) {
                     chromeOptions.addArguments("--headless");
                     chromeOptions.addArguments("disable-gpu");
                 }
@@ -49,7 +37,7 @@ public class TestBase  {
                 break;
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                if (Boolean.parseBoolean(prop.getProperty("headless", "false"))) {
+                if (isHeadless) {
                     firefoxOptions.addArguments("--headless");
                     firefoxOptions.addArguments("disable-gpu");
                 }
@@ -57,7 +45,7 @@ public class TestBase  {
                 break;
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
-                if (Boolean.parseBoolean(prop.getProperty("headless", "false"))) {
+                if (isHeadless) {
                     edgeOptions.addArguments("--headless");
                     edgeOptions.addArguments("disable-gpu");
                 }
@@ -70,7 +58,7 @@ public class TestBase  {
         driver.get().manage().window().maximize();
         driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        String url = prop.getProperty("QAUrl");
+        String url = ConfigManager.getProperty("QAUrl");
         System.out.println("Loading URL: " + url);
         driver.get().get(url);
     }
