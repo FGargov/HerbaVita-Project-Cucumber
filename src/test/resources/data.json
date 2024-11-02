@@ -43,23 +43,45 @@
       "suggestionsCount": 6
     }
   },
-  "addressData": {
-    "firstName": "Ivan",
-    "lastName": "Ivanov",
-    "address": "15 Pirin St.",
-    "city": "Sofia",
-    "postalCode": "1618",
-    "phone": "+35988712345",
-    "email": "fgargov1@gmail.com"
+  "productDetails": {
+    "firstProduct": {
+      "url": "https://herba-vita.eu/stage/produkt/sheik-formula-1-malina-i-bql-shokolad/",
+      "title": "ШЕЙК ФОРМУЛA 1 МАЛИНА И БЯЛ ШОКОЛАД"
+    }
   },
-  "messages": {
-    "noProductsFound": "No products found",
-    "orderConfirmation": "Благодарности. Вашата поръчка беше получена.",
-    "loginError": "ERROR : The username or password you entered is incorrect. Lost your password ?"
-  },
-  "contactInfo": {
-    "address": "София, Младост 1",
-    "phone": "0887 684 167",
-    "email": "sales@herba-vita.eu"
-  }
+    "addressData": {
+      "firstName": "Ivan",
+      "lastName": "Ivanov",
+      "address": "15 Pirin St.",
+      "city": "Sofia",
+      "postalCode": "1618",
+      "phone": "+35988712345",
+      "email": "fgargov1@gmail.com"
+    },
+    "messages": {
+      "noProductsFound": "No products found",
+      "orderConfirmation": "Благодарности. Вашата поръчка беше получена.",
+      "loginError": "ERROR : The username or password you entered is incorrect. Lost your password ?"
+    },
+    "productSearch": {
+      "messages": {
+        "noProductsFound": "No products found"
+      },
+      "buttons": {
+        "viewAllResults": "VIEW ALL RESULTS"
+      },
+      "productSuggestions": [
+        { "name": "чай", "expectedCount": 3 },
+        { "name": "алое", "expectedCount": 6 },
+        { "name": "хербал алое концентрат", "expectedCount": 2 },
+        { "name": "протеинови блокчета", "expectedCount": 1 },
+        { "name": "мултивитамин", "expectedCount": 1 },
+        { "name": "ментов чай", "expectedCount": 1 }
+      ]
+    },
+    "contactInfo": {
+      "address": "София, Младост 1",
+      "phone": "0887 684 167",
+      "email": "sales@herba-vita.eu"
+    }
 }
