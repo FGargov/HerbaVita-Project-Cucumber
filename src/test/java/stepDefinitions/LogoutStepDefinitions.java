@@ -8,6 +8,7 @@ import org.junit.Assert;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 import utils.TestContextSetup;
+import utils.TestData;
 
 public class LogoutStepDefinitions {
     private final String MY_PROFILE_URL = "https://herba-vita.eu/stage/moyat-profil/";
@@ -32,6 +33,7 @@ public class LogoutStepDefinitions {
 
     @When("Enter the user {string}")
     public void enterUsername(String username) {
+        username = TestData.getValidUser().get("username").asText();
         loginPage.typeUsername(loginPage.getUsernameLocator(), username);
         String typedUsername = loginPage.getTypedUsername();
 
@@ -40,6 +42,7 @@ public class LogoutStepDefinitions {
 
     @And("Enter the long password {string}")
     public void enterPassword(String password) {
+        password = TestData.getValidUser().get("password").asText();
         loginPage.typePassword(loginPage.getPasswordLocator(), password);
         String typedPassword = loginPage.getTypedPassword();
 

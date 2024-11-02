@@ -15,10 +15,11 @@ public class LoginPageStepDefinitions {
     private TestContextSetup testContextSetup;
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
-    private final String MY_PROFILE_URL = "https://herba-vita.eu/stage/moyat-profil/";
-    private final String ORDERS_LINK_URL = "https://herba-vita.eu/stage/moyat-profil/orders/";
-    private final String DOWNLOADS_LINK_URL = "https://herba-vita.eu/stage/moyat-profil/downloads/";
-    private final String LOGOUT_LINK_URL = "https://herba-vita.eu/stage/moyat-profil/customer-logout/?_wpnonce=31143fab33";
+    private final String MY_PROFILE_URL = TestData.getProfileUrls().get("myProfileUrl").asText();
+    private final String ORDERS_LINK_URL = TestData.getProfileUrls().get("ordersLinkUrl").asText();
+    private final String DOWNLOADS_LINK_URL = TestData.getProfileUrls().get("downloadsLinkUrl").asText();
+    private final String LOGOUT_LINK_URL = TestData.getProfileUrls().get("logoutLinkUrl").asText();
+
 
 
     public LoginPageStepDefinitions(TestContextSetup testContextSetup) {
