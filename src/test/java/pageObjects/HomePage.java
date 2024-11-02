@@ -5,13 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.TestData;
 
 import java.util.List;
 
 public class HomePage extends BasePage {
-    private final String HOME_PAGE_URL = "https://herba-vita.eu/stage/";
-    private final String MY_PROFILE_LOGIN_PAGE_URL = "https://herba-vita.eu/stage/moyat-profil/";
-    private final String PROMO_PRODUCT_TITLE = "CR7 DRIVE С ВКУС НА АКАЙ БЕРИ";
+    private final String HOME_PAGE_URL = TestData.getHomePageData().get("url").asText();
+    private final String MY_PROFILE_LOGIN_PAGE_URL = TestData.getHomePageData().get("loginPageUrl").asText();
+    private final String PROMO_PRODUCT_TITLE = TestData.getHomePageData().get("promoProductTitle").asText();
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -87,7 +88,8 @@ public class HomePage extends BasePage {
     }
 
     public void verifyUserIsOnHomePage() {
-        Assert.assertTrue(getTitleHomePage().contains("Herba-Vita - Независим член на Хербалайф"));
+        String expectedTitle = TestData.getHomePageData().get("title").asText();
+        Assert.assertTrue(getTitleHomePage().contains(expectedTitle));
     }
 
     public void verifyHomePageURLIsCorrect() {
