@@ -13,59 +13,69 @@ import java.time.Duration;
 import java.util.Properties;
 
 public class TestBase  {
-    public WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    public WebDriver WebDriverManager()  throws IOException {
+    private Properties loadProperties() throws IOException {
+        Properties prop = new Properties();
         InputStream fis = getClass().getClassLoader().getResourceAsStream("global.properties");
 
         if (fis == null) {
             throw new FileNotFoundException("Property file not found in the classpath");
         }
-        Properties prop = new Properties();
+
         prop.load(fis);
-        String url = prop.getProperty("QAUrl");
-        String browserProperties = prop.getProperty("browser");
-        String mavenBrowser = System.getProperty("browser");
+        return prop;
+    }
 
-        String browser = mavenBrowser != null ? mavenBrowser : browserProperties;
+    public WebDriver getDriver() throws IOException {
+        if (driver.get() == null) {
+            initializeDriver();
+        }
+        return driver.get();
+    }
 
+    private void initializeDriver() throws IOException{
+        Properties prop = loadProperties();
+        String browser = System.getProperty("browser", prop.getProperty("browser"));
 
-
-        if (driver == null) {
-            if (browser != null && browser.equalsIgnoreCase("chrome")) {
-                ChromeOptions options = new ChromeOptions();
-
-                if (prop.getProperty("headless").equalsIgnoreCase("true")) {
-                    options.addArguments("--headless");
-                    options.addArguments("disable-gpu");
+        switch (browser.toLowerCase()) {
+            case "chrome":
+                ChromeOptions chromeOptions = new ChromeOptions();
+                if (Boolean.parseBoolean(prop.getProperty("headless", "false"))) {
+                    chromeOptions.addArguments("--headless");
+                    chromeOptions.addArguments("disable-gpu");
                 }
-
-                driver = new ChromeDriver(options);
-            } else if (browser != null && browser.equalsIgnoreCase("firefox")) {
-                FirefoxOptions options = new FirefoxOptions();
-
-                if (prop.getProperty("headless").equalsIgnoreCase("true")) {
-                    options.addArguments("--headless");
-                    options.addArguments("disable-gpu");
+                driver.set(new ChromeDriver(chromeOptions));
+                break;
+            case "firefox":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                if (Boolean.parseBoolean(prop.getProperty("headless", "false"))) {
+                    firefoxOptions.addArguments("--headless");
+                    firefoxOptions.addArguments("disable-gpu");
                 }
-                driver = new FirefoxDriver(options);
-            } else if (browser != null && browser.equalsIgnoreCase("edge")) {
-                EdgeOptions options = new EdgeOptions();
-
-                if (prop.getProperty("headless").equalsIgnoreCase("true")) {
-                    options.addArguments("--headless");
-                    options.addArguments("disable-gpu");
+                driver.set(new FirefoxDriver(firefoxOptions));
+                break;
+            case "edge":
+                EdgeOptions edgeOptions = new EdgeOptions();
+                if (Boolean.parseBoolean(prop.getProperty("headless", "false"))) {
+                    edgeOptions.addArguments("--headless");
+                    edgeOptions.addArguments("disable-gpu");
                 }
-                driver = new EdgeDriver(options);
-            } else {
-                throw new IllegalArgumentException("A valid browser is not set: " + browser);
-            }
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-            driver.get(url);
+                driver.set(new EdgeDriver(edgeOptions));
+                break;
+            default:
+                throw new IllegalArgumentException("Browser not supported: " + browser);
         }
 
-        return driver;
+        driver.get().manage().window().maximize();
+        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        String url = prop.getProperty("QAUrl");
+        System.out.println("Loading URL: " + url);
+        driver.get().get(url);
+    }
+    public void removeDriver() {
+        driver.remove();
     }
 }
 
