@@ -7,6 +7,8 @@ import pageObjects.DashboardPage;
 import pageObjects.LoginPage;
 import utils.TestContextSetup;
 
+import java.io.IOException;
+
 @Log4j2
 public class LoginPageStepDefinitions {
     private TestContextSetup testContextSetup;
@@ -58,8 +60,8 @@ public class LoginPageStepDefinitions {
     }
 
     @Then("I should be logged in successfully")
-    public void shouldBeLoggedInSuccessfully() {
-        WebElement profileTitle = testContextSetup.getTestBase().driver.findElement(dashboardPage.getProfileTitle());
+    public void shouldBeLoggedInSuccessfully() throws IOException {
+        WebElement profileTitle = testContextSetup.getTestBase().getDriver().findElement(dashboardPage.getProfileTitle());
         loginPage.verifyProfileTitle(profileTitle);
     }
 
