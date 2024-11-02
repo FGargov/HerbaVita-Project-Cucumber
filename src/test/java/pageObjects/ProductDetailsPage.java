@@ -5,12 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.TestData;
 
 import java.util.List;
 
 public class ProductDetailsPage extends BasePage {
-    private final String FIRST_PRODUCT_URL = "https://herba-vita.eu/stage/produkt/sheik-formula-1-malina-i-bql-shokolad/";
-    private final String PRODUCT_PAGE_TITLE = "ШЕЙК ФОРМУЛA 1 МАЛИНА И БЯЛ ШОКОЛАД";
+    private final String FIRST_PRODUCT_URL = TestData.getFirstProductUrl();
+    private final String PRODUCT_PAGE_TITLE = TestData.getFirstProductTitle();
 
     public ProductDetailsPage(WebDriver driver) {
         super(driver);
