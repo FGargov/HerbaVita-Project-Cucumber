@@ -6,10 +6,9 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageObjects.CheckoutPage;
 import utils.TestContextSetup;
+import utils.TestData;
 
-import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class CheckoutStepDefinitions {
     private TestContextSetup testContextSetup;
@@ -23,7 +22,8 @@ public class CheckoutStepDefinitions {
     }
 
     @When("^I find and select (.*) using the search$")
-    public void searchForProductAndClickOnSearchButton(String productName) {
+    public void searchForProductAndClickOnSearchButton(String productNamePlaceholder) {
+        String productName = TestData.getProduct("product1").get("name").asText();
         checkoutPage.searchForProduct(productName);
         checkoutPage.clickOnSearchButton(checkoutPage.getSearchButton());
 
@@ -50,6 +50,7 @@ public class CheckoutStepDefinitions {
 
     @When("^I find and select (.*) using the search field in home page$")
     public void searchForProductAndClickOnSearchButtonInHomePage(String productName) {
+        productName = TestData.getProduct("product1").get("name").asText();
         checkoutPage.searchForProduct(productName);
         checkoutPage.clickOnSearchButton(checkoutPage.getSearchButton());
 
@@ -58,6 +59,7 @@ public class CheckoutStepDefinitions {
 
     @Then("^(.*) is added to my cart and click on the order button$")
     public void addAllProductsToShoppingCart(String productName) {
+        productName = TestData.getProduct("product1").get("name").asText();
         checkoutPage.addProductToCart(productName);
         checkoutPage.verifyShoppingCartIsNotEmpty();
         checkoutPage.clickOnOrderButton(checkoutPage.getCheckoutButton());
@@ -90,6 +92,7 @@ public class CheckoutStepDefinitions {
 
     @And("А confirmation message saying {string} should be displayed")
     public void verifyConfirmationMessage(String expectedMessage) {
+        expectedMessage = TestData.getMessage("orderConfirmation");
         checkoutPage.getWait().until(ExpectedConditions.visibilityOf(checkoutPage.getCompletedOrderMessage()));
         String actualMessage = checkoutPage.getCompletedOrderMessage().getText();
         checkoutPage.verifyOrderCompletedMessage(expectedMessage, actualMessage);

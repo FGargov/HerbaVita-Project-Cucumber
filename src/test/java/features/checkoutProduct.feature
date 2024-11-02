@@ -16,24 +16,24 @@ Feature: Checkout Process
         | Name |
         | ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ |
 
+  @RegressionTest
+  Scenario Outline: Complete purchase with correct billing information
+    Given I find and select <Name> using the search field in home page
+    And <Name> is added to my cart and click on the order button
+    And I am on the checkout page
+    When I enter the following shipping information and verify that the shipping information is correct
+      | <firstName> |
+      | <lastName> |
+      | <address> |
+      | <city> |
+      | <postalCode> |
+      | <phone> |
+      | <email> |
+    And I click on the "ПОРЪЧВАНЕ" button
+    And I should see a confirmation page with the order details
+    And А confirmation message saying "<confirmationMessage>" should be displayed
 
-    @RegressionTest
-    Scenario: Complete purchase with correct billing information
-      Given I find and select ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ using the search field in home page
-      And ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ is added to my cart and click on the order button
-      And I am on the checkout page
-      When I enter the following shipping information and verify that the shipping information is correct
-      | Ivan |
-      | Ivanov |
-      | 15 Pirin St. |
-      | Sofia |
-      | 1618 |
-      | +35988712345 |
-      | fgargov1@gmail.com |
-      And I click on the "ПОРЪЧВАНЕ" button
-      And I should see a confirmation page with the order details
-      And А confirmation message saying "Благодарности. Вашата поръчка беше получена." should be displayed
-
-
-
+    Examples:
+      | Name                         | firstName | lastName | address       | city  | postalCode | phone       | email              | confirmationMessage                         |
+      | ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ | Ivan     | Ivanov   | 15 Pirin St. | Sofia | 1618       | +35988712345 | fgargov1@gmail.com | Благодарности. Вашата поръчка беше получена. |
 

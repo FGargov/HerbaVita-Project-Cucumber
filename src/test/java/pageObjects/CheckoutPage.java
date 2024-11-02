@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.TestData;
 
 import java.util.List;
 
@@ -131,13 +132,22 @@ public class CheckoutPage extends BasePage {
     }
 
     public void enterShippingInformation(List<String> data) {
-        enterData(firstNameField, data.get(0));
-        enterData(lastNameField, data.get(1));
-        enterData(addressField, data.get(2));
-        enterData(cityField, data.get(3));
-        enterData(postcodeField, data.get(4));
-        enterData(phoneField, data.get(5));
-        enterData(emailField, data.get(6));
+        String firstName = TestData.getAddressField("firstName");
+        String lastName = TestData.getAddressField("lastName");
+        String address = TestData.getAddressField("address");
+        String city = TestData.getAddressField("city");
+        String postalCode = TestData.getAddressField("postalCode");
+        String phone = TestData.getAddressField("phone");
+        String email = TestData.getAddressField("email");
+
+        enterData(firstNameField, firstName);
+        enterData(lastNameField, lastName);
+        enterData(addressField, address);
+        enterData(cityField, city);
+        enterData(postcodeField, postalCode);
+        enterData(phoneField, phone);
+        enterData(emailField, email);
+
         scrollToElement(getTermsCheckbox());
         clickOnButton(getTermsCheckbox());
     }
@@ -216,7 +226,6 @@ public class CheckoutPage extends BasePage {
         String actualEmail = getEmail().getAttribute("value");
         Assert.assertEquals("Email is incorrect", expectedEmail, actualEmail);
     }
-
 
     public void verifyOrderCompletedMessage(String actualMessage, String expectedMessage) {
         Assert.assertEquals("Order completed message is incorrect", expectedMessage, actualMessage);
