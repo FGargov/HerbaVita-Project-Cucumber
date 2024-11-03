@@ -43,7 +43,7 @@ public class HomePageStepDefinitions {
 
         String expectedUrl = firstMenuItem.getAttribute("href");
         homePage.clickMenuItem(firstMenuItem);
-        homePage.getWait().until(ExpectedConditions.urlToBe(expectedUrl));
+        homePage.waitActions.waitForUrlToBe(expectedUrl);
 
         String currentUrl = homePage.getCurrentUrl();
         homePage.verifyNavigationToExpectedPage(expectedUrl, currentUrl);
@@ -56,7 +56,7 @@ public class HomePageStepDefinitions {
 
         String expectedUrl = secondMenuItem.getAttribute("href");
         homePage.clickMenuItem(secondMenuItem);
-        homePage.getWait().until(ExpectedConditions.urlToBe(expectedUrl));
+        homePage.waitActions.waitForUrlToBe(expectedUrl);
 
         String currentUrl = homePage.getCurrentUrl();
         homePage.verifyNavigationToExpectedPage(expectedUrl, currentUrl);
