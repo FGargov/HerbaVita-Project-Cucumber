@@ -87,6 +87,10 @@
         }
       ]
     },
+    "checkOutUrls": {
+      "checkoutPageUrl": "https://herba-vita.eu/stage/porachka-2/",
+      "orderReceiveUrl": "https://herba-vita.eu/stage/porachka-2/order-received/"
+    },
     "contactInfo": {
       "address": "София, Младост 1",
       "phone": "0887 684 167",
