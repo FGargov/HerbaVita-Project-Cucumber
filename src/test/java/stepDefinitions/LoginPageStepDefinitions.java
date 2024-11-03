@@ -40,9 +40,9 @@ public class LoginPageStepDefinitions {
     public void enterUsername(String usernamePlaceholder) {
         String username;
 
-        if (usernamePlaceholder.equals("{validUsername}")) {
+        if (usernamePlaceholder.equals("validUsername")) {
             username = TestData.getValidUser().get("username").asText();
-        } else if (usernamePlaceholder.equals("{invalidUsername}")) {
+        } else if (usernamePlaceholder.equals("invalidUsername")) {
             username = TestData.getInvalidUser().get("username").asText();
         } else {
             throw new IllegalArgumentException("Unknown username placeholder: " + usernamePlaceholder);
@@ -59,9 +59,9 @@ public class LoginPageStepDefinitions {
     public void enterPassword(String passwordPlaceholder) {
         String password;
 
-        if (passwordPlaceholder.equals("{validPassword}")) {
+        if (passwordPlaceholder.equals("validPassword")) {
             password = TestData.getValidUser().get("password").asText();
-        } else if (passwordPlaceholder.equals("{invalidPassword}")) {
+        } else if (passwordPlaceholder.equals("invalidPassword")) {
             password = TestData.getInvalidUser().get("password").asText();
         } else {
             throw new IllegalArgumentException("Unknown password placeholder: " + passwordPlaceholder);

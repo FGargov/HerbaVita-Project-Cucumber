@@ -21,8 +21,9 @@ Feature: Shopping Cart
 
     When I search for <Name> in the search field and click on the search button
     Then I have added <Name> to my shopping cart
-    And I change the quantity of <Name> to <Quantity>
-    And I should see the updated quantity of <Name> in my shopping cart and it should be <Quantity>
+    And I change the quantity of <Name> to the expected quantity
+    And I should see the updated quantity of <Name> in my shopping cart
+
 
     Examples:
       | Name | Quantity |

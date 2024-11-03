@@ -32,7 +32,7 @@ Feature: Product Search
     Scenario Outline: Display relevant suggestions while type in the search box
 
       When I search for <Name> in the search field
-      Then The suggestions should contain at least <ExpectedCount> items
+      Then The suggestions should contain the correct number of items for <Name>
       And I should see the "VIEW ALL RESULTS" button
 
       Examples:

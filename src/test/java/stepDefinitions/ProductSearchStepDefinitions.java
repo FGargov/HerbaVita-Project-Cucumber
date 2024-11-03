@@ -49,7 +49,7 @@ public class ProductSearchStepDefinitions {
     }
 
 
-    @Then("^The suggestions should contain at least (.*) items$")
+    @Then("^The suggestions should contain the correct number of items for (.*)$")
     public void numberOfSuggestionsShouldBe(String productKey) {
         int expectedCount = TestData.getExpectedSuggestionCount(productKey);
         int actualNumberOfSuggestions = productSearchPage.getProductsAutocompleteSuggestions().size();

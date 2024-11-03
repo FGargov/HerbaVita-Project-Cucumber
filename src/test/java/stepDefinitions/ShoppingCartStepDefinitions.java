@@ -32,14 +32,14 @@ public class ShoppingCartStepDefinitions {
         shoppingCartPage.verifyShoppingCartIsNotEmpty();
     }
 
-    @And("^I change the quantity of (.*) to (\\d+)$")
+    @And("^I change the quantity of (.*) to the expected quantity$")
     public void changeQuantityOfProduct(String productKey) {
         String productName = TestData.getProductNameFromShoppingCart(productKey);
         int quantityFromJson = TestData.getProductQuantityFromShoppingCart(productKey);
         shoppingCartPage.changeProductQuantity(productName, String.valueOf(quantityFromJson));
     }
 
-    @And("^I should see the updated quantity of (.*) in my shopping cart and it should be (.*)$")
+    @And("^I should see the updated quantity of (.*) in my shopping cart$")
     public void shouldSeeTheUpdatedQuantity(String productKey) {
         String productName = TestData.getProductNameFromShoppingCart(productKey);
         int quantityFromJson = TestData.getProductQuantityFromShoppingCart(productKey);
