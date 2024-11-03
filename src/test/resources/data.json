@@ -79,6 +79,14 @@
         { "name": "ментов чай", "expectedCount": 1 }
       ]
     },
+    "shoppingCart": {
+      "products": [
+        {
+          "name": "ШЕЙК ФОРМУЛА 1 – 550ГР. КАФЕ ЛАТЕ",
+          "quantity": 3
+        }
+      ]
+    },
     "contactInfo": {
       "address": "София, Младост 1",
       "phone": "0887 684 167",
