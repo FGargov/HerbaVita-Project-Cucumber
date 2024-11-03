@@ -21,10 +21,6 @@ public class LoginPage extends BasePage {
     private By errorMessageLocator = By.xpath("//ul[contains(@class, 'woocommerce-error')]//li");
 
 
-    public WebDriverWait getWait() {
-        return this.wait;
-    }
-
     public By getUsernameLocator() {
         return this.usernameLocator;
     }
@@ -43,19 +39,19 @@ public class LoginPage extends BasePage {
     }
 
     public void clickOnLoginPageIcon(WebElement icon) {
-        wait.until(ExpectedConditions.visibilityOf(icon));
+        waitActions.waitForElementVisible(icon);
         icon.click();
     }
 
     public void typeUsername(By usernameLocator, String username) {
-        waitForElementVisibleByLocator(usernameLocator);
+        waitActions.waitForElementVisibleByLocator(usernameLocator);
         WebElement usernameField = driver.findElement(usernameLocator);
         usernameField.clear();
         usernameField.sendKeys(username);
     }
 
     public void typePassword(By passwordLocator, String password) {
-        waitForElementVisibleByLocator(passwordLocator);
+        waitActions.waitForElementVisibleByLocator(passwordLocator);
         driver.findElement(passwordLocator).clear();
         driver.findElement(passwordLocator).sendKeys(password);
     }
@@ -74,17 +70,17 @@ public class LoginPage extends BasePage {
     }
 
     public WebElement getLoginButton() {
-        waitForElementVisibleByLocator(loginButton);
+        waitActions.waitForElementVisibleByLocator(loginButton);
         return driver.findElement(loginButton);
     }
 
     public String getErrorMessage() {
         try {
-            waitForPageLoad();
+            waitActions.waitForPageLoad();
 
             takeScreenshot("before_error_check.png");
 
-            waitForElementVisibleByLocator(errorMessageLocator);
+            waitActions.waitForElementVisibleByLocator(errorMessageLocator);
             WebElement errorElement = driver.findElement(errorMessageLocator);
             return errorElement.getText();
         } catch (Exception e) {

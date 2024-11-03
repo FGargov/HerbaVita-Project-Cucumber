@@ -25,10 +25,6 @@ public class HomePage extends BasePage {
     private By buyNowButton = By.xpath("//*[@id='slider-45-slide-110-layer-10']");
     private By logoutButton = By.xpath("//div[@class='customer-logout-link']//a[1]");
 
-    public WebDriverWait getWait() {
-        return this.wait;
-    }
-
     public String getTitleHomePage() {
         return driver.getTitle();
     }
@@ -37,13 +33,13 @@ public class HomePage extends BasePage {
         return driver.getCurrentUrl().equals(HOME_PAGE_URL);
     }
     public boolean isLoginPageURLCorrect() {
-        waitForPageLoad();
+        waitActions.waitForPageLoad();
         return driver.getCurrentUrl().equals(MY_PROFILE_LOGIN_PAGE_URL);
     }
 
 
     public WebElement getHomePageLink() {
-        waitForElementVisibleByLocator(homePageLogo);
+        waitActions.waitForElementVisibleByLocator(homePageLogo);
         return driver.findElement(homePageLogo);
     }
 
@@ -73,17 +69,17 @@ public class HomePage extends BasePage {
     }
 
     public WebElement getBuyNowButton() {
-        waitForElementVisibleByLocator(buyNowButton);
+        waitActions.waitForElementVisibleByLocator(buyNowButton);
         return driver.findElement(buyNowButton);
     }
 
     public boolean getOfferFrame() {
-        waitForElementVisibleByLocator(offerFrame);
+        waitActions.waitForElementVisibleByLocator(offerFrame);
         return driver.findElement(offerFrame).isDisplayed();
     }
 
     public void clickLogoutButton() {
-        waitForElementVisibleByLocator(logoutButton);
+        waitActions.waitForElementVisibleByLocator(logoutButton);
         clickOnButton(getLogoutButton());
     }
 

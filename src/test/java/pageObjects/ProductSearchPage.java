@@ -19,31 +19,28 @@ public class ProductSearchPage extends BasePage {
     private By allResultsButton = By.xpath("//div[@class='view-all-results']//span[1]");
     private By resultsPageTitle = By.xpath("//h1[@class='entry-title title']");
 
-    public WebDriverWait getWait() {
-        return wait;
-    }
 
     public By getProductSearchField() {
         return this.productSearchField;
     }
 
     public WebElement getAllResultsButton() {
-        waitForElementVisibleByLocator(allResultsButton);
+        waitActions.waitForElementVisibleByLocator(allResultsButton);
         return driver.findElement(allResultsButton);
     }
 
     public void clickOnAllResultsButton(WebElement button) {
-        waitForElementVisibleByLocator(allResultsButton);
+        waitActions.waitForElementVisibleByLocator(allResultsButton);
         button.click();
     }
 
     public List<WebElement> getProductsAutocompleteSuggestions() {
-        waitForElementVisibleByLocator(productsAutocompleteSuggestions);
+        waitActions.waitForElementVisibleByLocator(productsAutocompleteSuggestions);
         return driver.findElements(productsAutocompleteSuggestions);
     }
 
     public WebElement getErrorMessage() {
-        waitForElementVisibleByLocator(notFoundProductsMessage);
+        waitActions.waitForElementVisibleByLocator(notFoundProductsMessage);
         return driver.findElement(notFoundProductsMessage);
     }
 

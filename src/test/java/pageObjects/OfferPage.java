@@ -14,10 +14,6 @@ public class OfferPage extends BasePage {
 
     private By productTitle = By.xpath("//h1[text()[normalize-space()='CR7 DRIVE С ВКУС НА АКАЙ БЕРИ']]");
 
-    public WebDriverWait getWait() {
-        return this.wait;
-    }
-
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }

@@ -39,7 +39,7 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public void clickOnSearchButton(WebElement button) {
-        waitForElementVisibleByLocator(searchButton);
+        waitActions.waitForElementVisibleByLocator(searchButton);
         button.click();
     }
 
@@ -76,29 +76,29 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public void changeProductQuantity(String productName, String quantity) {
-        WebElement quantityElement = waitForElementVisibleByLocator(
+        WebElement quantityElement = waitActions.waitForElementVisibleByLocator(
                 By.xpath("//span[contains(text(), '" + productName + "')]/ancestor::li//input[@type='number']"));
 
         scrollToElement(quantityElement);
 
         quantityElement.clear();
         quantityElement.sendKeys(quantity);
-        wait.until(ExpectedConditions.attributeToBe(quantityElement, "value", quantity));
+        waitActions.waitAttributeToBe(quantityElement, "value", quantity);
 
         String actualResult = quantityElement.getAttribute("value");
         Assert.assertEquals("Quantity was not updated correctly", Integer.parseInt(quantity), Integer.parseInt(actualResult));
     }
 
     public void removeProductFromCart(String productName) {
-        waitForElementVisibleByLocator(removeProductFromCart);
+        waitActions.waitForElementVisibleByLocator(removeProductFromCart);
         WebElement removeProduct = driver.findElement(removeProductFromCart);
         removeProduct.click();
-        wait.until(ExpectedConditions.invisibilityOf(removeProduct));
+        waitActions.waitForElementToDisappear(removeProduct);
 
         productsToRemove.removeIf(product -> product.getText().contains(productName));
     }
     public void verifySearchResultAreDisplayed() {
-        waitForElementVisibleByLocator(productResults);
+        waitActions.waitForElementVisibleByLocator(productResults);
         List<WebElement> allSearchResults = getAllProductResults();
 
         Assert.assertTrue("No search results found!", !allSearchResults.isEmpty());

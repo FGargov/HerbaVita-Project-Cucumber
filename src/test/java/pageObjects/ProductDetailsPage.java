@@ -25,10 +25,6 @@ public class ProductDetailsPage extends BasePage {
         return driver.getCurrentUrl();
     }
 
-    public WebDriverWait getWait() {
-        return this.wait;
-    }
-
     public WebElement getProductTitle() {
         return driver.findElement(productTitle);
     }
@@ -56,8 +52,8 @@ public class ProductDetailsPage extends BasePage {
         menuItem.click();
     }
     public void verifyProductDetailsPageUrl() {
-        waitForPageLoad();
-        waitForUrlToBe(FIRST_PRODUCT_URL);
+        waitActions.waitForPageLoad();
+        waitActions.waitForUrlToBe(FIRST_PRODUCT_URL);
         String currentUrl = getCurrentUrl();
         String expectedUrl = FIRST_PRODUCT_URL;
 

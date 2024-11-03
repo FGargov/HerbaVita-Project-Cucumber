@@ -40,17 +40,17 @@ public class DashboardPage extends BasePage {
     }
 
     public boolean isProfileTitleDisplayed() {
-        return waitForElementVisibleByLocator(profileTitle).isDisplayed();
+        return waitActions.waitForElementVisibleByLocator(profileTitle).isDisplayed();
     }
 
     public void verifyLinkUrl(By elementLocator, String expectedUrl) {
-        WebElement element = waitForElementVisibleByLocator(elementLocator);
+        WebElement element = waitActions.waitForElementVisibleByLocator(elementLocator);
         String actualUrl = element.getAttribute("href");
         Assert.assertEquals("The URL is incorrect for the element: " + elementLocator.toString(), expectedUrl, actualUrl);
     }
 
     public void verifyLogoutLinkUrl(By elementLocator, String expectedUrl) {
-        WebElement element = waitForElementVisibleByLocator(elementLocator);
+        WebElement element = waitActions.waitForElementVisibleByLocator(elementLocator);
         String actualUrl = element.getAttribute("href");
 
         String expectedStaticUrl = expectedUrl.split("\\?_wpnonce")[0];

@@ -25,7 +25,7 @@ public class ProductDetailsStepDefinitions {
 
         String expectedUrl = firstMenuItem.getAttribute("href");
         productDetailsPage.clickMenuItem(firstMenuItem);
-        productDetailsPage.getWait().until(ExpectedConditions.urlToBe(expectedUrl));
+        productDetailsPage.waitActions.waitForUrlToBe((expectedUrl));
 
         String currentUrl = productDetailsPage.getCurrentUrl();
         productDetailsPage.verifyNavigationToExpectedPage(expectedUrl, currentUrl);

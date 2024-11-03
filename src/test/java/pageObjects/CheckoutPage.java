@@ -36,10 +36,6 @@ public class CheckoutPage extends BasePage {
     private By completedOrderMessage = By.xpath("//p[text()[normalize-space()='Благодарности. Вашата поръчка беше получена.']]");
 
 
-    public WebDriverWait getWait() {
-        return this.wait;
-    }
-
     public WebElement getFirstName() {
         return driver.findElement(firstNameField);
     }
@@ -101,7 +97,7 @@ public class CheckoutPage extends BasePage {
     }
 
     public void clickOnSearchButton(WebElement button) {
-        waitForElementVisibleByLocator(searchButton);
+        waitActions.waitForElementVisibleByLocator(searchButton);
         button.click();
     }
 
@@ -110,7 +106,7 @@ public class CheckoutPage extends BasePage {
     }
 
     public void addProductToCart(String productName) {
-        waitForPageLoad();
+        waitActions.waitForPageLoad();
         List<WebElement> allProducts = getAllProductResults();
 
         for (WebElement product : allProducts) {
@@ -122,6 +118,8 @@ public class CheckoutPage extends BasePage {
                 WebElement addToCartButton = getAddToCartButton();
                 addToCartButton.click();
 
+                waitActions.waitForElementVisibleByLocator(cartItems);
+
                 break;
             }
         }
@@ -132,6 +130,9 @@ public class CheckoutPage extends BasePage {
     }
 
     public void enterShippingInformation(List<String> data) {
+        waitActions.waitForPageToBeReady();
+        waitActions.waitForElementVisibleByLocator(firstNameField);
+
         String firstName = TestData.getAddressField("firstName");
         String lastName = TestData.getAddressField("lastName");
         String address = TestData.getAddressField("address");
@@ -159,19 +160,20 @@ public class CheckoutPage extends BasePage {
     }
 
     public void clickOnOrderButton() {
-        waitForElementVisibleByLocator(orderButton);
+        waitActions.waitForElementVisibleByLocator(orderButton);
         WebElement button = getOrderButton();
         clickOnButton(button);
     }
 
     public void verifySearchResultAreDisplayed() {
-        waitForElementVisibleByLocator(productResults);
+        waitActions.waitForElementVisibleByLocator(productResults);
         List<WebElement> allSearchResults = getAllProductResults();
 
         Assert.assertTrue("No search results found!", !allSearchResults.isEmpty());
     }
 
     public void verifyShoppingCartIsNotEmpty() {
+        waitActions.waitForElementVisibleByLocator(cartItems);
         boolean isCartEmpty = isCartEmpty();
 
         Assert.assertFalse("No search results found!", isCartEmpty);
@@ -187,7 +189,7 @@ public class CheckoutPage extends BasePage {
     }
 
     public void confirmPageIsLoaded() {
-        waitForPageLoad();
+        waitActions.waitForPageLoad();
     }
 
     public void verifyShippingInformation(List<String> data) {
