@@ -14,7 +14,7 @@ public class CheckoutStepDefinitions {
     private TestContextSetup testContextSetup;
     private CheckoutPage checkoutPage;
     private final String CHECKOUT_PAGE_URL = TestData.getCheckoutPageUrl();
-    private final String ORDER_RECEIVE_PAGE_URL = TestData.getOrderReceiveUrl();
+    private final String ORDER_RECEIVE_PAGE_URL = "https://herba-vita.eu/stage/porachka-2/order-received/";
 
     public CheckoutStepDefinitions(TestContextSetup testContextSetup) {
         this.testContextSetup = testContextSetup;
@@ -44,7 +44,7 @@ public class CheckoutStepDefinitions {
 
     @Then("I should be taken to the checkout page")
     public void shouldBeTakenToTheCheckoutPage() {
-        checkoutPage.getWait().until(ExpectedConditions.urlToBe(CHECKOUT_PAGE_URL));
+        checkoutPage.waitActions.waitForUrlToBe(CHECKOUT_PAGE_URL);
         String currentUrl = checkoutPage.getCurrentUrl();
         checkoutPage.verifyPageUrl(currentUrl, CHECKOUT_PAGE_URL);
     }
@@ -68,7 +68,7 @@ public class CheckoutStepDefinitions {
 
     @And("I am on the checkout page")
     public void shouldBeOnTheCheckoutPage() {
-        checkoutPage.getWait().until(ExpectedConditions.urlToBe(CHECKOUT_PAGE_URL));
+        checkoutPage.waitActions.waitForUrlToBe(CHECKOUT_PAGE_URL);
         String currentUrl = checkoutPage.getCurrentUrl();
         checkoutPage.verifyPageUrl(currentUrl, CHECKOUT_PAGE_URL);
     }
@@ -86,15 +86,16 @@ public class CheckoutStepDefinitions {
 
     @And("I should see a confirmation page with the order details")
     public void verifyConfirmationPage() {
-        checkoutPage.getWait().until(ExpectedConditions.urlContains(ORDER_RECEIVE_PAGE_URL));
+        checkoutPage.waitActions.waitForUrlToContain(ORDER_RECEIVE_PAGE_URL);
         String currentUrl = checkoutPage.getCurrentUrl();
         checkoutPage.verifyPageUrl(currentUrl, ORDER_RECEIVE_PAGE_URL);
     }
 
     @And("А confirmation message saying {string} should be displayed")
     public void verifyConfirmationMessage(String expectedMessage) {
+        checkoutPage.waitActions.waitForPageToBeReady();
         expectedMessage = TestData.getMessage("orderConfirmation");
-        checkoutPage.getWait().until(ExpectedConditions.visibilityOf(checkoutPage.getCompletedOrderMessage()));
+        checkoutPage.waitActions.waitForElementVisible(checkoutPage.getCompletedOrderMessage());
         String actualMessage = checkoutPage.getCompletedOrderMessage().getText();
         checkoutPage.verifyOrderCompletedMessage(expectedMessage, actualMessage);
     }
