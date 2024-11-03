@@ -13,8 +13,8 @@ import java.util.List;
 public class CheckoutStepDefinitions {
     private TestContextSetup testContextSetup;
     private CheckoutPage checkoutPage;
-    private final String CHECKOUT_PAGE_URL = "https://herba-vita.eu/stage/porachka-2/";
-    private final String ORDER_RECEIVE_PAGE_URL = "https://herba-vita.eu/stage/porachka-2/order-received/";
+    private final String CHECKOUT_PAGE_URL = TestData.getCheckoutPageUrl();
+    private final String ORDER_RECEIVE_PAGE_URL = TestData.getOrderReceiveUrl();
 
     public CheckoutStepDefinitions(TestContextSetup testContextSetup) {
         this.testContextSetup = testContextSetup;
