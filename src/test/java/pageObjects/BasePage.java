@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.WaitActions;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,23 +12,15 @@ import java.time.Duration;
 
 public class BasePage {
     protected WebDriver driver;
-    protected WebDriverWait wait;
+    public WaitActions waitActions;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-    }
-
-    protected WebElement waitForElementVisibleByLocator(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-    protected WebElement waitForElementVisible(WebElement element) {
-        return wait.until(ExpectedConditions.visibilityOf(element));
+        this.waitActions = new WaitActions(driver, 30);
     }
 
     protected void typeProductName(By productSearchField, String productName) {
-        waitForElementVisibleByLocator(productSearchField);
+        waitActions.waitForElementVisibleByLocator(productSearchField);
         WebElement searchProductField = driver.findElement(productSearchField);
         searchProductField.clear();
         searchProductField.sendKeys(productName);
@@ -66,22 +59,8 @@ public class BasePage {
         js.executeScript("arguments[0].click();", button);
     }
 
-    protected void waitForPageLoad() {
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("return document.readyState").equals("complete");
-    }
-
     protected void sendKeysUsingJavaScript(WebElement element, String value) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].value='" + value + "';", element);
-    }
-
-
-    protected void waitForUrlToBe(String expectedUrl) {
-        wait.until(ExpectedConditions.urlToBe(expectedUrl));
-    }
-
-    protected void waitAttributeToBe(WebElement elementLocator, String attribute, String value) {
-        wait.until(ExpectedConditions.attributeToBe(elementLocator, attribute, value));
     }
 }
