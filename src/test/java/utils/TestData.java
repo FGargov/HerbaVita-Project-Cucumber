@@ -131,4 +131,12 @@ public class TestData {
 
         throw new IllegalArgumentException("Product quantity not found for key: " + productKey);
     }
+
+    public static String getCheckoutPageUrl() {
+        return data.get("checkOutUrls").get("checkoutPageUrl").asText();
+    }
+
+    public static String getOrderReceiveUrl() {
+        return data.get("checkOutUrls").get("orderReceiveUrl").asText();
+    }
 }

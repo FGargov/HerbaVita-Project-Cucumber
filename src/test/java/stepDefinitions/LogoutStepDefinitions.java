@@ -11,7 +11,7 @@ import utils.TestContextSetup;
 import utils.TestData;
 
 public class LogoutStepDefinitions {
-    private final String MY_PROFILE_URL = "https://herba-vita.eu/stage/moyat-profil/";
+    private final String MY_PROFILE_URL = TestData.getProfileUrls().get("myProfileUrl").asText();
 
     private TestContextSetup testContextSetup;
     private HomePage homePage;
