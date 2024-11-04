@@ -26,6 +26,10 @@ public class WaitActions {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public WebElement waitForElementClickable(WebElement element) {
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
     public void waitForUrlToBe(String expectedUrl) {
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
     }
