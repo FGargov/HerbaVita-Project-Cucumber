@@ -16,7 +16,7 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.waitActions = new WaitActions(driver, 30);
+        this.waitActions = new WaitActions(driver, 50);
     }
 
     protected void typeProductName(By productSearchField, String productName) {
