@@ -49,17 +49,24 @@ public class ShoppingCartPage extends BasePage {
         for (WebElement product : allProducts) {
             String productText = product.getText();
 
+            System.out.println("Checking product: " + productText);
+
             if (productText.contains(productName)) {
                 scrollDownByOffset();
                 actions.moveToElement(product).perform();
-                WebElement addToCartButton = getAddToCartButton();
-                addToCartButton.click();
 
+                WebElement addToCartButton = getAddToCartButton();
+                waitActions.waitForElementVisible(addToCartButton);
+                waitActions.waitForElementClickable(addToCartButton);
+
+                System.out.println("Adding product to cart: " + productName);
+                addToCartButton.click();
                 productsToRemove.add(product);
                 break;
             }
         }
     }
+
 
     private List<WebElement> getAllProductResults() {
         return driver.findElements(productResults);
@@ -107,7 +114,7 @@ public class ShoppingCartPage extends BasePage {
     public void verifyShoppingCartIsNotEmpty() {
         boolean isCartEmpty = isCartEmpty();
 
-        Assert.assertFalse("No search results found!", isCartEmpty);
+        Assert.assertFalse("Shopping cart is empty, but it was expected to contain items!", !isCartEmpty);
     }
 
     public void verifyListOfProductsIsEmpty() {
@@ -116,8 +123,9 @@ public class ShoppingCartPage extends BasePage {
 
     public void verifyShoppingCartIsEmpty() {
         boolean isCartEmpty = isCartEmpty();
+        Assert.assertTrue("Shopping cart is not empty!", isCartEmpty);
 
-        Assert.assertTrue("No search results found!", isCartEmpty);
+        Assert.assertEquals("List of products is not empty!", 0, productsToRemove.size());
     }
 
     public void verifyUpdatedQuantity(int expectedQuantity, int actualQuantity) {
