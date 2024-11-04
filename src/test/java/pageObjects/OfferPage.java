@@ -19,6 +19,7 @@ public class OfferPage extends BasePage {
     }
 
     public String getProductTitle() {
+        waitActions.waitForElementVisibleByLocator(productTitle);
         return driver.findElement(productTitle).getText();
     }
 
