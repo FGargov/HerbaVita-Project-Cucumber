@@ -50,13 +50,16 @@ Testing ensures that these features function correctly and reliably, focusing on
             - `@AfterStep` – Captures screenshots on failure, adding them to the report for easier debugging.
 
   - **utilities**: Contains utility classes for common functions and shared resources across the project:
-      - `TestBase.java` – Manages the WebDriver setup and browser configurations based on properties from `global.properties`. Supports multiple browsers (Chrome, Firefox, Edge) and headless mode.
+      - `TestBase.java` – Manages the WebDriver setup and browser configurations based on properties from `global.properties`. Supports multiple browsers (Chrome, Firefox, Edge) and headless mode. To ensure thread safety in parallel test execution, `ThreadLocal` is used for `WebDriver` instances, allowing each test thread to work with its own isolated WebDriver session.
       - `TestContextSetup.java` – Provides a shared context for all classes, allowing easy access to `WebDriver`, `PageObjectManager`, and other common utilities.
       - `GenericUtils.java` – Contains helper methods, such as `SwitchWindowsToChild()` for handling multiple windows in browser sessions.     
-
+      - `ConfigManager.java` – Loads configuration settings from global.properties, making it easy to access values like browser type and URLs across the project. This ensures that all test settings are centralized and easily configurable.
+      - `WaitActions.java` – Custom wait utility that encapsulates explicit waits, providing methods like waitForElementVisible, waitForElementToBeClickable, and waitForAttributeToBe. This improves test stability by ensuring elements are ready before interacting with them.
+      - `BrowserType` – BrowserType uses an enum to define supported browser types (e.g., Chrome, Firefox, Edge), allowing flexible configuration through the global.properties file. Based on the selected browser type and headless mode, the driver is dynamically created and configured.
 - **src/test/resources**:
     - **global.properties**: Contains essential configuration settings for the project, such as browser preferences and environment URLs. For detailed descriptions of each setting, refer to comments in the `global.properties` file.
     - **extent.properties**: Configures settings for ExtentReports, including report paths, output formats, and screenshot handling. Detailed configurations can be found in the `extent.properties` file.
+    - **data.json**: Test data for the HerbaVita project is stored in data.json, including URLs, user credentials, product details, and error messages. This file enables centralized test data management, allowing easy updates without modifying feature files directly.
 
 
 - **test-output**:
