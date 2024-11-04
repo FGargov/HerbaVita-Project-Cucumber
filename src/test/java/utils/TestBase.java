@@ -10,8 +10,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import pageObjects.BasePage;
 
 import java.io.*;
-import java.time.Duration;
-import java.util.Properties;
 
 public class TestBase  {
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
