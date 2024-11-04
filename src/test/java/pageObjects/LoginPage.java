@@ -116,6 +116,7 @@ public class LoginPage extends BasePage {
     }
 
     public void verifyLoginFormIsVisible(){
+        waitActions.waitForElementVisibleByLocator(usernameLocator);
         Assert.assertTrue("The login form is not visible!", isLoginFormVisible());
     }
 
